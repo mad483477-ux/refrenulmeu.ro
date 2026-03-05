@@ -1262,25 +1262,28 @@
         }
         .toggle-option.active { background: var(--accent); color: white; }
 
-        /* ========== PACKAGES GRID ========== */
-        .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .package-card {
-            background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 12px;
-            padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative;
+        /* ========== PACKAGES COMPARISON TABLE ========== */
+        .packages-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 0; border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; }
+        .pkg-header { padding: 16px 12px; text-align: center; cursor: pointer; transition: all 0.3s ease; border-bottom: 1px solid var(--border-subtle); position: relative; }
+        .pkg-header:hover { background: rgba(124, 58, 237, 0.05); }
+        .pkg-header.selected { background: rgba(124, 58, 237, 0.08); }
+        .pkg-header h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+        .pkg-header .package-price { font-size: 1.2rem; font-weight: 700; color: var(--gold); }
+        .pkg-header .popular-badge {
+            position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: #0a0a0a; font-size: 0.6rem; font-weight: 700;
+            padding: 2px 10px; border-radius: 0 0 8px 8px; white-space: nowrap;
         }
-        .package-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-        .package-card.selected { border-color: var(--accent); background: rgba(124, 58, 237, 0.05); }
-        .package-card.popular { border-color: var(--gold); }
-        .package-card .popular-badge {
-            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-            background: var(--gold); color: #0a0a0a; font-size: 0.65rem; font-weight: 700;
-            padding: 3px 10px; border-radius: 50px; white-space: nowrap;
-        }
-        .package-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-        .package-price { font-size: 1.4rem; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
-        .package-card ul { list-style: none; text-align: left; font-size: 0.8rem; color: var(--text-secondary); }
-        .package-card ul li { padding: 3px 0; display: flex; align-items: center; gap: 6px; }
-        .package-card ul li::before { content: '✓'; color: var(--success); font-weight: 700; }
+        .pkg-corner { padding: 16px 12px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }
+        .pkg-feature { padding: 10px 12px; font-size: 0.85rem; color: var(--text-primary); display: flex; align-items: center; border-bottom: 1px solid rgba(42,42,42,0.5); }
+        .pkg-check { padding: 10px 12px; text-align: center; font-size: 1rem; border-bottom: 1px solid rgba(42,42,42,0.5); cursor: pointer; transition: background 0.3s ease; }
+        .pkg-check:hover { background: rgba(124, 58, 237, 0.03); }
+        .pkg-check.selected { background: rgba(124, 58, 237, 0.06); }
+        .pkg-check .check-yes { color: var(--success); font-weight: 700; }
+        .pkg-check .check-no { color: var(--border-subtle); }
+        .packages-grid > :last-child, .packages-grid > :nth-last-child(-n+4) { border-bottom: none; }
+        /* Legacy compat for JS */
+        .package-card { cursor: pointer; }
 
         /* ========== ATINGERI PERSONALE ========== */
         .atingeri-intro { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px; }
@@ -1379,15 +1382,15 @@
 
         .dirijorul-container {
             position: relative;
-            width: 80px;
-            height: 100px;
+            width: 72px;
+            height: 96px;
         }
 
         /* Conductor body - SVG based */
         .dirijorul svg {
-            width: 80px;
-            height: 100px;
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+            width: 72px;
+            height: 96px;
+            filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
         }
 
         /* Baton wave animation */
@@ -1514,12 +1517,12 @@
                 right: 12px;
             }
             .dirijorul-container {
-                width: 60px;
-                height: 75px;
+                width: 56px;
+                height: 74px;
             }
             .dirijorul svg {
-                width: 60px;
-                height: 75px;
+                width: 56px;
+                height: 74px;
             }
             .dirijorul-bubble {
                 font-size: 0.7rem;
@@ -1734,7 +1737,12 @@
                 width: calc(50% - 10px);
             }
 
-            .packages-grid { grid-template-columns: 1fr; }
+            .packages-grid { grid-template-columns: 1.2fr repeat(3, 1fr); font-size: 0.8rem; }
+            .pkg-feature { font-size: 0.75rem; padding: 8px 8px; }
+            .pkg-check { padding: 8px 6px; }
+            .pkg-header h4 { font-size: 0.8rem; }
+            .pkg-header .package-price { font-size: 1rem; }
+            .pkg-corner { font-size: 0.75rem; padding: 12px 8px; }
             .pricing-grid { grid-template-columns: 1fr; }
             .style-selector-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -1778,7 +1786,7 @@
             <div class="hero-content">
                 <div class="hero-badge">🎵 Melodii create de Domnul Dirijor</div>
                 <h1>Melodia ta personalizată,<br><em>gata în 3 minute</em></h1>
-                <p class="hero-subtitle">Spune-i povestea ta, iar Domnul Dirijor va compune o melodie unică, special pentru tine. În doar câteva minute.</p>
+                <p class="hero-subtitle">Spune-i povestea ta, iar Domnul Dirijor va compune o melodie unică, special pentru tine și ocazia ta. În doar câteva minute. O surpriză melodioasă care rămâne.</p>
                 <div class="hero-actions">
                     <a href="#comanda" class="btn btn-gold">Creează melodia ta</a>
                     <a href="#cum-functioneaza" class="btn btn-outline">Află cum funcționează</a>
@@ -1965,7 +1973,7 @@
                             <div class="path-card" data-path="direct" tabindex="0" role="button" aria-label="Calea directă">
                                 <span class="path-emoji">🎯</span>
                                 <h4>Știu ce vreau</h4>
-                                <p>Alege direct stilul și completează detaliile.</p>
+                                <p>Alege direct stilul muzical și completează detaliile.</p>
                             </div>
                         </div>
                     </div>
@@ -1982,12 +1990,12 @@
                             <h3 class="step-title">Ce vibe cauți?</h3>
                             <p class="step-desc">Alege emoția pe care vrei să o transmită melodia</p>
                             <div class="vibe-grid" id="gVibeGrid">
-                                <div class="selectable-card" data-value="vesel-energic"><span class="card-emoji">😄</span><span class="card-label">Vesel & Energic</span></div>
-                                <div class="selectable-card" data-value="romantic-tandru"><span class="card-emoji">💕</span><span class="card-label">Romantic & Tandru</span></div>
-                                <div class="selectable-card" data-value="emotional-profund"><span class="card-emoji">🥹</span><span class="card-label">Emoțional & Profund</span></div>
+                                <div class="selectable-card" data-value="vesel-energic"><span class="card-emoji">😄</span><span class="card-label">Vesel</span></div>
                                 <div class="selectable-card" data-value="petrecere-dansant"><span class="card-emoji">🎉</span><span class="card-label">De petrecere</span></div>
-                                <div class="selectable-card" data-value="nostalgic-cald"><span class="card-emoji">🌅</span><span class="card-label">Nostalgic & Cald</span></div>
-                                <div class="selectable-card" data-value="funny-amuzant"><span class="card-emoji">😂</span><span class="card-label">Funny & Amuzant</span></div>
+                                <div class="selectable-card" data-value="chill-relaxat"><span class="card-emoji">😌</span><span class="card-label">Chill</span></div>
+                                <div class="selectable-card" data-value="romantic-tandru"><span class="card-emoji">💕</span><span class="card-label">Romantic</span></div>
+                                <div class="selectable-card" data-value="emotional-profund"><span class="card-emoji">🥹</span><span class="card-label">Emoțional</span></div>
+                                <div class="selectable-card" data-value="funny-amuzant"><span class="card-emoji">😂</span><span class="card-label">Amuzant</span></div>
                             </div>
                             <div class="step-nav"><div></div><button type="button" class="btn btn-accent step-next" aria-label="Pasul următor">Următorul →</button></div>
                         </div>
@@ -2060,8 +2068,8 @@
                             <h3 class="step-title">Spune-i povestea ta Domnului Dirijor</h3>
                             <p class="step-desc" id="gStoryPrompt">Cu cât ne spui mai mult, cu atât melodia va fi mai personalizată.</p>
                             <div class="form-group">
-                                <textarea id="gStory" class="form-textarea" rows="5" placeholder="Povestește-ne ceva special despre persoana sau momentul pe care vrei să-l celebrezi..."></textarea>
-                                <div class="diacritics-note">Cu cât ne spui mai multe detalii, cu atât melodia va fi mai personalizată.</div>
+                                <textarea id="gStory" class="form-textarea" rows="5" placeholder="Spune-ne cât mai multe: cine e persoana, ce relație aveți, ce moment celebrați, ce ar trebui să simtă când ascultă melodia..."></textarea>
+                                <div class="diacritics-note">Orice detaliu îl ajută pe Domnul Dirijor și orchestra sa să compună cea mai frumoasă amintire melodioasă.</div>
                             </div>
                             <div class="step-nav">
                                 <button type="button" class="btn btn-outline step-prev">← Înapoi</button>
@@ -2094,9 +2102,56 @@
                             </div>
                             <div id="gPackagesView">
                                 <div class="packages-grid" id="gPackagesGrid">
-                                    <div class="package-card" data-package="simplu"><h4>Simplu</h4><div class="package-price">39.99 lei</div><ul><li>Melodie personalizată</li><li>2 variante</li><li>Download instant</li></ul></div>
-                                    <div class="package-card popular selected" data-package="special"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div><ul><li>Versuri personalizate</li><li>1 mențiune de nume</li><li>Mesaj personal</li></ul></div>
-                                    <div class="package-card" data-package="premium"><h4>Premium</h4><div class="package-price">89.99 lei</div><ul><li>Tot din Special +</li><li>Intro vorbit + Outro</li><li>Poveste extinsă</li></ul></div>
+                                    <!-- Header row -->
+                                    <div class="pkg-corner">Ce primești</div>
+                                    <div class="pkg-header package-card" data-package="simplu"><h4>Simplu</h4><div class="package-price">39.99 lei</div></div>
+                                    <div class="pkg-header package-card selected" data-package="special"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div></div>
+                                    <div class="pkg-header package-card" data-package="premium"><h4>Premium</h4><div class="package-price">89.99 lei</div></div>
+                                    <!-- Melodie personalizată -->
+                                    <div class="pkg-feature">Melodie personalizată</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- 2 variante -->
+                                    <div class="pkg-feature">2 variante generate</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Download instant -->
+                                    <div class="pkg-feature">Download instant</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Versuri personalizate -->
+                                    <div class="pkg-feature">Versuri personalizate</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Mențiune de nume -->
+                                    <div class="pkg-feature">Mențiune de nume</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Mesaj personal -->
+                                    <div class="pkg-feature">Mesaj personal în melodie</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Intro vorbit -->
+                                    <div class="pkg-feature">Intro vorbit</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-no">—</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Outro cu dedicație -->
+                                    <div class="pkg-feature">Outro cu dedicație</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-no">—</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Poveste extinsă -->
+                                    <div class="pkg-feature">Poveste extinsă</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-no">—</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
                                 </div>
                             </div>
                             <div id="gCustomView" style="display:none">
@@ -2171,11 +2226,11 @@
                             <div class="form-group"><label>Vibe-ul melodiei</label>
                                 <div class="chip-group" id="dVibeChips">
                                     <div class="chip" data-value="vesel-energic">😄 Vesel</div>
+                                    <div class="chip" data-value="petrecere-dansant">🎉 De petrecere</div>
+                                    <div class="chip" data-value="chill-relaxat">😌 Chill</div>
                                     <div class="chip" data-value="romantic-tandru">💕 Romantic</div>
                                     <div class="chip" data-value="emotional-profund">🥹 Emoțional</div>
-                                    <div class="chip" data-value="petrecere-dansant">🎉 Petrecere</div>
-                                    <div class="chip" data-value="nostalgic-cald">🌅 Nostalgic</div>
-                                    <div class="chip" data-value="funny-amuzant">😂 Funny</div>
+                                    <div class="chip" data-value="funny-amuzant">😂 Amuzant</div>
                                 </div>
                             </div>
                             <div class="step-nav"><div></div><button type="button" class="btn btn-accent step-next">Următorul →</button></div>
@@ -2205,7 +2260,7 @@
                             <div class="form-group"><label>Limba versurilor</label>
                                 <div class="lang-selector" id="dLangSelector"><div class="chip selected" data-value="ro">🇷🇴 Română</div><div class="chip" data-value="en">🇬🇧 Engleză</div><div class="chip" data-value="es">🇪🇸 Spaniolă</div><div class="chip" data-value="it">🇮🇹 Italiană</div><div class="chip" data-value="fr">🇫🇷 Franceză</div></div>
                             </div>
-                            <div class="form-group"><label for="dStory">Povestea ta</label><textarea id="dStory" class="form-textarea" rows="4" placeholder="Spune-ne povestea: cum s-au cunoscut? Ce moment v-a marcat? Ce ai vrea să simtă când ascultă melodia?"></textarea><div class="diacritics-note">Cu cât ne spui mai multe detalii, cu atât melodia va fi mai personalizată.</div></div>
+                            <div class="form-group"><label for="dStory">Povestea ta</label><textarea id="dStory" class="form-textarea" rows="4" placeholder="Spune-ne cât mai multe: cine e persoana, ce relație aveți, ce moment celebrați, ce ar trebui să simtă când ascultă melodia..."></textarea><div class="diacritics-note">Orice detaliu îl ajută pe Domnul Dirijor și orchestra sa să compună cea mai frumoasă amintire melodioasă.</div></div>
                             <div class="step-nav"><button type="button" class="btn btn-outline step-prev">← Înapoi</button><button type="button" class="btn btn-accent step-next">Următorul →</button></div>
                         </div>
 
@@ -2218,9 +2273,56 @@
                             </div>
                             <div id="dPackagesView">
                                 <div class="packages-grid" id="dPackagesGrid">
-                                    <div class="package-card" data-package="simplu"><h4>Simplu</h4><div class="package-price">39.99 lei</div><ul><li>Melodie + 2 variante</li><li>Download instant</li></ul></div>
-                                    <div class="package-card popular selected" data-package="special"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div><ul><li>Versuri personalizate</li><li>Mențiune + Mesaj</li></ul></div>
-                                    <div class="package-card" data-package="premium"><h4>Premium</h4><div class="package-price">89.99 lei</div><ul><li>Intro + Outro</li><li>Poveste extinsă</li></ul></div>
+                                    <!-- Header row -->
+                                    <div class="pkg-corner">Ce primești</div>
+                                    <div class="pkg-header package-card" data-package="simplu"><h4>Simplu</h4><div class="package-price">39.99 lei</div></div>
+                                    <div class="pkg-header package-card selected" data-package="special"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div></div>
+                                    <div class="pkg-header package-card" data-package="premium"><h4>Premium</h4><div class="package-price">89.99 lei</div></div>
+                                    <!-- Melodie personalizată -->
+                                    <div class="pkg-feature">Melodie personalizată</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- 2 variante -->
+                                    <div class="pkg-feature">2 variante generate</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Download instant -->
+                                    <div class="pkg-feature">Download instant</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Versuri personalizate -->
+                                    <div class="pkg-feature">Versuri personalizate</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Mențiune de nume -->
+                                    <div class="pkg-feature">Mențiune de nume</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Mesaj personal -->
+                                    <div class="pkg-feature">Mesaj personal în melodie</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-yes">✓</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Intro vorbit -->
+                                    <div class="pkg-feature">Intro vorbit</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-no">—</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Outro cu dedicație -->
+                                    <div class="pkg-feature">Outro cu dedicație</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-no">—</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
+                                    <!-- Poveste extinsă -->
+                                    <div class="pkg-feature">Poveste extinsă</div>
+                                    <div class="pkg-check" data-col="simplu"><span class="check-no">—</span></div>
+                                    <div class="pkg-check selected" data-col="special"><span class="check-no">—</span></div>
+                                    <div class="pkg-check" data-col="premium"><span class="check-yes">✓</span></div>
                                 </div>
                             </div>
                             <div id="dCustomView" style="display:none">
@@ -2372,8 +2474,8 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">RefrenulMeu<span>.ro</span></div>
-                    <p>Melodii personalizate create de Domnul Dirijor pentru orice ocazie. Cadoul perfect, în doar câteva minute.</p>
-                    <p class="license-note">Melodiile sunt create cu ajutorul tehnologiei avansate de compoziție muzicală. Licențiate pentru uz personal și evenimente private.</p>
+                    <p>Melodii personalizate compuse de Domnul Dirijor și orchestra sa, pentru orice ocazie. Cadoul care rămâne.</p>
+                    <p class="license-note">Melodiile sunt compuse cu tehnologie avansată de compoziție muzicală. Licențiate pentru uz personal, cadouri și distribuire online.</p>
                 </div>
                 <div>
                     <h4>Legal</h4>
@@ -2413,48 +2515,84 @@
                 <span>&#9834;</span>
                 <span>&#9833;</span>
             </div>
-            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="conductor-body">
-                <!-- Hat -->
-                <ellipse cx="40" cy="14" rx="18" ry="6" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
-                <rect x="28" y="4" width="24" height="12" rx="4" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
-                <rect x="26" y="12" width="28" height="3" rx="1" fill="#2a2a2a"/>
-                <!-- Head -->
-                <circle cx="40" cy="28" r="12" fill="#F5D0A9"/>
-                <!-- Eyes -->
-                <circle cx="36" cy="26" r="1.5" fill="#1a1a1a"/>
-                <circle cx="44" cy="26" r="1.5" fill="#1a1a1a"/>
-                <!-- Smile -->
-                <path d="M36 32 Q40 36 44 32" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                <!-- Body (tuxedo) -->
-                <path d="M28 40 L26 72 H54 L52 40 Z" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
-                <!-- Lapels -->
-                <path d="M36 40 L40 55 L44 40" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
-                <!-- Bow tie -->
-                <path d="M37 40 L40 42 L43 40 L40 38 Z" fill="var(--accent)"/>
-                <!-- Shirt -->
-                <rect x="38" y="42" width="4" height="28" rx="1" fill="#fafafa" opacity="0.15"/>
-                <!-- Buttons -->
-                <circle cx="40" cy="48" r="1" fill="var(--gold)"/>
-                <circle cx="40" cy="54" r="1" fill="var(--gold)"/>
-                <circle cx="40" cy="60" r="1" fill="var(--gold)"/>
-                <!-- Left arm (static) -->
-                <path d="M28 44 L18 58 L20 60" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
-                <circle cx="19" cy="59" r="3" fill="#F5D0A9"/>
+            <svg viewBox="0 0 90 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="conductor-body">
+                <!-- Shadow base -->
+                <ellipse cx="45" cy="116" rx="20" ry="3" fill="rgba(0,0,0,0.3)"/>
+                <!-- Legs with tailored trousers -->
+                <path d="M36 82 L34 108 L30 108 L30 110 L40 110 L40 82 Z" fill="#111" stroke="#222" stroke-width="0.5"/>
+                <path d="M50 82 L52 108 L56 108 L56 110 L46 110 L46 82 Z" fill="#111" stroke="#222" stroke-width="0.5"/>
+                <!-- Shoes - polished oxford -->
+                <path d="M28 108 L41 108 L42 110 L42 113 L28 113 L27 110 Z" fill="#111" stroke="#2a2a2a" stroke-width="0.5"/>
+                <path d="M44 108 L57 108 L58 110 L58 113 L44 113 L43 110 Z" fill="#111" stroke="#2a2a2a" stroke-width="0.5"/>
+                <path d="M28 110 L42 110" stroke="#333" stroke-width="0.3"/>
+                <path d="M44 110 L58 110" stroke="#333" stroke-width="0.3"/>
+                <!-- Body - tailored tuxedo -->
+                <path d="M30 48 L28 82 H58 L56 48 Z" fill="#111"/>
+                <!-- Tuxedo jacket shape with broader shoulders -->
+                <path d="M26 48 L30 48 L28 82 H58 L56 48 L60 48 L58 44 L54 40 H32 L28 44 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="0.5"/>
+                <!-- White shirt front -->
+                <path d="M39 42 L39 80 L47 80 L47 42 Z" fill="#fafafa" opacity="0.12"/>
+                <line x1="43" y1="42" x2="43" y2="80" stroke="#fafafa" opacity="0.06" stroke-width="0.5"/>
+                <!-- Satin lapels -->
+                <path d="M32 42 L39 42 L43 58" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M54 42 L47 42 L43 58" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                <!-- Bow tie - proper butterfly -->
+                <path d="M38 41 L43 43 L48 41 L48 39 L43 41 L38 39 Z" fill="var(--accent)"/>
+                <circle cx="43" cy="41" r="1.2" fill="var(--accent-hover)"/>
+                <!-- Gold buttons -->
+                <circle cx="43" cy="52" r="0.8" fill="var(--gold)"/>
+                <circle cx="43" cy="58" r="0.8" fill="var(--gold)"/>
+                <circle cx="43" cy="64" r="0.8" fill="var(--gold)"/>
+                <!-- Pocket square -->
+                <path d="M50 47 L54 47 L53 51 L51 50 Z" fill="var(--gold)" opacity="0.7"/>
+                <!-- Neck -->
+                <rect x="39" y="34" width="8" height="8" rx="3" fill="#E8C39E"/>
+                <!-- Head - refined proportions -->
+                <ellipse cx="43" cy="26" rx="11" ry="13" fill="#E8C39E"/>
+                <!-- Hair - distinguished silver-grey, swept back -->
+                <path d="M32 24 Q33 12 43 10 Q53 12 54 24 Q54 20 50 16 Q43 13 36 16 Q32 20 32 24 Z" fill="#555"/>
+                <path d="M32 24 Q32 22 34 20 Q33 23 34 25" fill="#666" opacity="0.5"/>
+                <path d="M54 24 Q54 22 52 20 Q53 23 52 25" fill="#666" opacity="0.5"/>
+                <!-- Eyebrows - refined -->
+                <path d="M37 21 Q39 19.5 41 21" stroke="#444" stroke-width="0.8" fill="none"/>
+                <path d="M45 21 Q47 19.5 49 21" stroke="#444" stroke-width="0.8" fill="none"/>
+                <!-- Eyes - confident, warm -->
+                <ellipse cx="39" cy="24" rx="1.8" ry="2" fill="#fafafa"/>
+                <circle cx="39.3" cy="24" r="1.2" fill="#2a1a0a"/>
+                <circle cx="39.6" cy="23.5" r="0.4" fill="#fafafa"/>
+                <ellipse cx="47" cy="24" rx="1.8" ry="2" fill="#fafafa"/>
+                <circle cx="47.3" cy="24" r="1.2" fill="#2a1a0a"/>
+                <circle cx="47.6" cy="23.5" r="0.4" fill="#fafafa"/>
+                <!-- Nose -->
+                <path d="M43 25 L42 29 L44 29" stroke="#C9A882" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+                <!-- Warm confident smile -->
+                <path d="M39 31 Q43 34 47 31" stroke="#B8956A" stroke-width="1" fill="none" stroke-linecap="round"/>
+                <!-- Mustache - distinguished -->
+                <path d="M39 29.5 Q41 31 43 29.5 Q45 31 47 29.5" stroke="#555" stroke-width="1" fill="none" stroke-linecap="round"/>
+                <!-- Top hat - classic -->
+                <rect x="32" y="4" width="22" height="14" rx="3" fill="#111" stroke="#2a2a2a" stroke-width="0.5"/>
+                <rect x="29" y="14" width="28" height="3.5" rx="1.5" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+                <!-- Hat band -->
+                <rect x="32" y="13" width="22" height="2" rx="0.5" fill="var(--accent)" opacity="0.6"/>
+                <!-- Left arm - elegant resting pose -->
+                <path d="M30 48 L22 56 L20 68 L22 70" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M30 48 L22 56 L20 68 L22 70" stroke="#2a2a2a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                <!-- Left hand - behind back -->
+                <circle cx="21" cy="69" r="3.5" fill="#E8C39E"/>
                 <!-- Right arm + baton group -->
                 <g class="baton">
-                    <!-- Right arm -->
-                    <path d="M52 44 L62 36 L64 34" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
-                    <circle cx="63" cy="35" r="3" fill="#F5D0A9"/>
-                    <!-- Baton stick -->
-                    <line x1="63" y1="35" x2="74" y2="18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="74" cy="17" r="1.5" fill="var(--gold)"/>
+                    <path d="M56 48 L64 40 L68 34" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round" fill="none"/>
+                    <path d="M56 48 L64 40 L68 34" stroke="#2a2a2a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    <!-- Right hand -->
+                    <circle cx="68" cy="33" r="3.5" fill="#E8C39E"/>
+                    <!-- Fingers holding baton -->
+                    <path d="M66 31 L67 30" stroke="#E8C39E" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M69 31 L70 30" stroke="#E8C39E" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- Baton - elegant gold -->
+                    <line x1="67" y1="32" x2="80" y2="14" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="80" cy="13" r="1.8" fill="var(--gold)"/>
+                    <circle cx="67" cy="32.5" r="1" fill="#C9A882"/>
                 </g>
-                <!-- Legs -->
-                <rect x="32" y="70" width="7" height="18" rx="3" fill="#111"/>
-                <rect x="41" y="70" width="7" height="18" rx="3" fill="#111"/>
-                <!-- Shoes -->
-                <ellipse cx="35" cy="90" rx="6" ry="3" fill="#111" stroke="#333" stroke-width="0.5"/>
-                <ellipse cx="45" cy="90" rx="6" ry="3" fill="#111" stroke="#333" stroke-width="0.5"/>
             </svg>
         </div>
     </div>
@@ -2780,20 +2918,20 @@
                 'craciun': ['pop','disco','chill'], 'alta-ocazie': ['pop','latino','chill']
             };
             var STORY_PROMPTS = {
-                'zi-nastere': 'Ce face persoana asta specială? Ce amintire ați împărțit?',
-                'nunta': 'Cum s-au cunoscut mirii? Ce moment a fost special?',
-                'botez': 'Care e numele copilului? Ce înseamnă acest moment?',
-                'valentines': 'Cum s-au îndrăgostit? Ce cuvinte i-ai spune?',
-                '8-martie': 'Ce o face specială? Ce calități admirați?',
-                'corporate': 'Ce realizări are echipa? Ce vibe vreți?',
-                'cerere-casatorie': 'Cum a fost povestea voastră de dragoste?',
-                'aniversare': 'Ce v-a legat de la început? Ce vă face speciali?',
-                'pensionare': 'Care au fost realizările? Ce vreți să transmiteți?',
-                'imn-firma': 'Care sunt valorile companiei? Ce mesaj vreți?',
-                'absolvire': 'Ce a însemnat această perioadă? Ce planuri?',
-                'doar-de-drag': 'Ce emoție vrei să transmiți?',
-                'craciun': 'Ce amintiri de Crăciun aveți împreună?',
-                'alta-ocazie': 'Povestește-ne despre ocazia ta specială.'
+                'zi-nastere': 'Povestește-ne despre persoana sărbătorită și ce o face specială.',
+                'nunta': 'Povestește-ne despre miri și ce moment i-a unit.',
+                'botez': 'Povestește-ne despre copil și ce înseamnă acest moment pentru voi.',
+                'valentines': 'Povestește-ne despre relația voastră și ce simți.',
+                '8-martie': 'Povestește-ne despre ea și ce o face specială.',
+                'corporate': 'Povestește-ne despre echipă și ce mesaj vreți să transmiteți.',
+                'cerere-casatorie': 'Povestește-ne despre povestea voastră de dragoste.',
+                'aniversare': 'Povestește-ne despre relația voastră și ce celebrați.',
+                'pensionare': 'Povestește-ne despre persoana sărbătorită și realizările sale.',
+                'imn-firma': 'Povestește-ne despre companie, valorile și mesajul dorit.',
+                'absolvire': 'Povestește-ne despre absolvent și ce a însemnat această perioadă.',
+                'doar-de-drag': 'Povestește-ne despre persoana căreia îi dedici melodia.',
+                'craciun': 'Povestește-ne despre persoana specială și amintirile voastre.',
+                'alta-ocazie': 'Povestește-ne despre ocazia ta și ce vrei să transmiți.'
             };
             var PACKAGE_PRICES = { simplu: 39.99, special: 59.99, premium: 89.99 };
             var DEDICATION_AMOUNTS = {
@@ -3112,17 +3250,26 @@
                         updateFormPrice(prefix);
                     });
                 });
-                // Package card selection
+                // Package card selection (comparison table)
                 var packagesGrid = document.getElementById(prefix + 'PackagesGrid');
                 if (packagesGrid) {
+                    function selectPackageCol(grid, pkg) {
+                        grid.querySelectorAll('.pkg-header').forEach(function(h) { h.classList.remove('selected'); });
+                        grid.querySelectorAll('.pkg-check').forEach(function(c) { c.classList.remove('selected'); });
+                        var header = grid.querySelector('.pkg-header[data-package="' + pkg + '"]');
+                        if (header) header.classList.add('selected');
+                        grid.querySelectorAll('.pkg-check[data-col="' + pkg + '"]').forEach(function(c) { c.classList.add('selected'); });
+                        formState[prefix].selectedPackage = pkg;
+                        updateFormPrice(prefix);
+                    }
                     packagesGrid.querySelectorAll('.package-card').forEach(function(card) {
                         card.addEventListener('click', function() {
-                            packagesGrid.querySelectorAll('.package-card').forEach(function(c) {
-                                c.classList.remove('selected');
-                            });
-                            this.classList.add('selected');
-                            formState[prefix].selectedPackage = this.dataset.package;
-                            updateFormPrice(prefix);
+                            selectPackageCol(packagesGrid, this.dataset.package);
+                        });
+                    });
+                    packagesGrid.querySelectorAll('.pkg-check').forEach(function(cell) {
+                        cell.addEventListener('click', function() {
+                            selectPackageCol(packagesGrid, this.dataset.col);
                         });
                     });
                 }
