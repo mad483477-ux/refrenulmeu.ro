@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politica de Confidențialitate — RefrenulMeu.ro</title>
+    <meta name="description" content="Politica de confidențialitate și protecția datelor cu caracter personal pentru RefrenulMeu.ro. Conform GDPR.">
+    <meta property="og:title" content="Politica de Confidențialitate — RefrenulMeu.ro">
+    <meta property="og:description" content="Află cum protejăm datele tale personale. Politica de confidențialitate RefrenulMeu.ro, conformă cu GDPR.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://refrenulmeu.ro/confidentialitate.html">
+    <meta property="og:locale" content="ro_RO">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-alt: #1a1a1a;
+            --border-subtle: #2a2a2a;
+            --text-primary: #fafafa;
+            --text-secondary: #a0a0a0;
+            --accent: #7C3AED;
+            --accent-hover: #6D28D9;
+            --gold: #D4A843;
+            --gold-hover: #c49a3a;
+            --success: #22C55E;
+            --error: #EF4444;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .logo a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo a:hover {
+            opacity: 0.85;
+        }
+
+        .nav-back {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-back:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== PAGE CONTENT ========== */
+        .page-content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: calc(100vh - 200px);
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .last-updated {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        /* ========== SECTIONS ========== */
+        .legal-section {
+            margin-bottom: 40px;
+        }
+
+        .legal-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: var(--text-primary);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .legal-section p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            margin: 12px 0 16px 0;
+        }
+
+        .legal-section ul li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            padding: 6px 0 6px 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .legal-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .legal-section a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(124, 58, 237, 0.3);
+            text-underline-offset: 3px;
+            transition: text-decoration-color 0.3s ease;
+        }
+
+        .legal-section a:hover {
+            text-decoration-color: var(--accent);
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+
+        .info-card p {
+            margin-bottom: 4px;
+        }
+
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .important-note {
+            background: rgba(124, 58, 237, 0.08);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+
+        .important-note p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+        }
+
+        .toc h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc ol li {
+            counter-increment: toc-counter;
+            margin-bottom: 8px;
+        }
+
+        .toc ol li a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc ol li a::before {
+            content: counter(toc-counter) ".";
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            min-width: 20px;
+        }
+
+        .toc ol li a:hover {
+            color: var(--text-primary);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 300px;
+        }
+
+        .license-note {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            opacity: 0.6;
+            line-height: 1.5;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== FADE-IN ANIMATION ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.7rem;
+            }
+
+            .page-content {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .legal-section h2 {
+                font-size: 1.15rem;
+            }
+
+            .toc {
+                padding: 20px;
+            }
+
+            .info-card {
+                padding: 16px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .legal-section h2 {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Pagina principală RefrenulMeu.ro">RefrenulMeu<span>.ro</span></a>
+            </div>
+            <a href="index.html" class="nav-back" aria-label="Înapoi la pagina principală">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Înapoi
+            </a>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="page-content" role="main">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <h1 class="page-title fade-in">Politica de Confidențialitate</h1>
+                <p class="page-subtitle fade-in">Protecția datelor tale este o prioritate pentru noi.</p>
+                <p class="last-updated fade-in">Ultima actualizare: 4 martie 2026</p>
+
+                <!-- Table of Contents -->
+                <nav class="toc fade-in" aria-label="Cuprins">
+                    <h3>Cuprins</h3>
+                    <ol>
+                        <li><a href="#operator">Operatorul de date</a></li>
+                        <li><a href="#date-colectate">Ce date colectăm</a></li>
+                        <li><a href="#scop">Scopul prelucrării</a></li>
+                        <li><a href="#temei">Temeiul legal al prelucrării</a></li>
+                        <li><a href="#transmitere">Cui transmitem datele</a></li>
+                        <li><a href="#stocare">Durata stocării</a></li>
+                        <li><a href="#drepturi">Drepturile tale</a></li>
+                        <li><a href="#cookies">Cookies</a></li>
+                        <li><a href="#securitate">Securitatea datelor</a></li>
+                        <li><a href="#modificari">Modificări ale politicii</a></li>
+                        <li><a href="#autoritate">Autoritatea de supraveghere</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ol>
+                </nav>
+
+                <!-- 1. Operator de date -->
+                <section class="legal-section fade-in" id="operator">
+                    <h2><span class="section-number">1</span> Operatorul de date</h2>
+                    <p>Operatorul de date cu caracter personal este:</p>
+                    <div class="info-card">
+                        <p><strong>SC [NUMELE_FIRMEI] SRL</strong></p>
+                        <p>CUI: [CUI_HERE]</p>
+                        <p>Sediu social: [ADRESA_HERE]</p>
+                        <p>Email: <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></p>
+                        <p>Website: <a href="https://refrenulmeu.ro">refrenulmeu.ro</a></p>
+                    </div>
+                    <p>În această politică, „noi", „al nostru" sau „RefrenulMeu.ro" se referă la operatorul de date menționat mai sus.</p>
+                </section>
+
+                <!-- 2. Ce date colectăm -->
+                <section class="legal-section fade-in" id="date-colectate">
+                    <h2><span class="section-number">2</span> Ce date colectăm</h2>
+                    <p>Când folosești serviciul nostru de melodii personalizate, colectăm următoarele categorii de date:</p>
+                    <ul>
+                        <li><strong>Adresa de email</strong> — pentru livrarea melodiei și comunicări legate de comandă</li>
+                        <li><strong>Numele destinatarului</strong> — pentru personalizarea melodiei (primul nume al persoanei căreia îi este dedicată melodia)</li>
+                        <li><strong>Povestea / textul pentru melodie</strong> — detaliile pe care ni le oferi pentru a compune melodia</li>
+                        <li><strong>Preferințe muzicale</strong> — stilul muzical, tonul, dedicațiile și opțiunile alese</li>
+                        <li><strong>Date de plată</strong> — procesate exclusiv de Stripe; noi <strong>nu stocăm</strong> datele cardului tău (număr, CVV, dată de expirare)</li>
+                    </ul>
+                    <div class="important-note">
+                        <p><strong>Important:</strong> Nu stocăm și nu avem acces la datele cardului tău bancar. Plățile sunt procesate integral de Stripe, un procesor de plăți certificat PCI DSS Nivel 1.</p>
+                    </div>
+                </section>
+
+                <!-- 3. Scopul prelucrării -->
+                <section class="legal-section fade-in" id="scop">
+                    <h2><span class="section-number">3</span> Scopul prelucrării</h2>
+                    <p>Datele tale personale sunt prelucrate în următoarele scopuri:</p>
+                    <ul>
+                        <li><strong>Generarea melodiei</strong> — folosim povestea și preferințele tale pentru a compune melodia personalizată</li>
+                        <li><strong>Livrarea pe email</strong> — îți trimitem melodia finalizată la adresa de email furnizată</li>
+                        <li><strong>Comunicări legate de comandă</strong> — confirmarea plății, statusul comenzii, eventuale probleme tehnice</li>
+                        <li><strong>Îmbunătățirea serviciului</strong> — analiza anonimizată a preferințelor pentru a oferi o experiență mai bună</li>
+                    </ul>
+                    <p>Nu folosim datele tale pentru marketing direct, cu excepția cazului în care îți dai consimțământul explicit (de exemplu, abonare la newsletter).</p>
+                </section>
+
+                <!-- 4. Temeiul legal -->
+                <section class="legal-section fade-in" id="temei">
+                    <h2><span class="section-number">4</span> Temeiul legal al prelucrării</h2>
+                    <p>Prelucrăm datele tale pe baza următoarelor temeiuri legale, conform Regulamentului (UE) 2016/679 (GDPR):</p>
+                    <ul>
+                        <li><strong>Executarea contractului</strong> (Art. 6 alin. 1 lit. b) — prelucrarea este necesară pentru furnizarea serviciului comandat (generarea și livrarea melodiei)</li>
+                        <li><strong>Consimțământul</strong> (Art. 6 alin. 1 lit. a) — pentru comunicări de marketing, newsletter sau alte scopuri opționale. Poți retrage consimțământul oricând.</li>
+                        <li><strong>Interesul legitim</strong> (Art. 6 alin. 1 lit. f) — pentru îmbunătățirea serviciului, prevenirea fraudei și asigurarea securității platformei</li>
+                        <li><strong>Obligația legală</strong> (Art. 6 alin. 1 lit. c) — pentru păstrarea documentelor fiscale conform legislației române</li>
+                    </ul>
+                </section>
+
+                <!-- 5. Cui transmitem datele -->
+                <section class="legal-section fade-in" id="transmitere">
+                    <h2><span class="section-number">5</span> Cui transmitem datele</h2>
+                    <p>Nu vindem datele tale personale. Le transmitem doar partenerilor necesari pentru funcționarea serviciului:</p>
+                    <ul>
+                        <li><strong>Stripe</strong> (procesare plăți) — Stripe, Inc., SUA. Transferul de date este protejat prin Clauze Contractuale Standard (SCC) aprobate de Comisia Europeană. <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Politica de confidențialitate Stripe</a></li>
+                        <li><strong>Vercel</strong> (hosting) — Vercel, Inc., SUA. Transferul de date este protejat prin Clauze Contractuale Standard (SCC). <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Politica de confidențialitate Vercel</a></li>
+                        <li><strong>Furnizorul de generare muzicală</strong> — primește doar povestea anonimizată (fără nume, email sau alte date personale directe) pentru compoziția melodiei</li>
+                    </ul>
+                    <div class="important-note">
+                        <p><strong>Transfer internațional:</strong> Unii parteneri sunt stabiliți în SUA. Ne asigurăm că transferurile de date respectă cerințele GDPR prin Clauze Contractuale Standard sau alte garanții adecvate.</p>
+                    </div>
+                </section>
+
+                <!-- 6. Durata stocării -->
+                <section class="legal-section fade-in" id="stocare">
+                    <h2><span class="section-number">6</span> Durata stocării</h2>
+                    <p>Păstrăm datele tale doar atât cât este necesar:</p>
+                    <ul>
+                        <li><strong>Datele comenzii</strong> (email, detalii comandă, facturi) — <span class="highlight">5 ani</span> de la data comenzii, conform obligațiilor fiscale din legislația română</li>
+                        <li><strong>Adresa de email</strong> (pentru newsletter sau comunicări opționale) — până la ștergerea la cerere sau dezabonare</li>
+                        <li><strong>Melodiile generate</strong> — <span class="highlight">30 de zile</span> de la generare, apoi sunt șterse automat de pe serverele noastre</li>
+                        <li><strong>Povestea / textul melodiei</strong> — stocat pe durata necesară generării, apoi anonimizat</li>
+                    </ul>
+                    <p>După expirarea perioadei de stocare, datele sunt șterse definitiv sau anonimizate ireversibil.</p>
+                </section>
+
+                <!-- 7. Drepturile tale -->
+                <section class="legal-section fade-in" id="drepturi">
+                    <h2><span class="section-number">7</span> Drepturile tale</h2>
+                    <p>Conform GDPR, ai următoarele drepturi privind datele tale personale:</p>
+                    <ul>
+                        <li><strong>Dreptul de acces</strong> — poți solicita o copie a datelor pe care le deținem despre tine</li>
+                        <li><strong>Dreptul la rectificare</strong> — poți cere corectarea datelor inexacte</li>
+                        <li><strong>Dreptul la ștergere</strong> („dreptul de a fi uitat") — poți cere ștergerea datelor tale, cu excepția celor pe care suntem obligați legal să le păstrăm</li>
+                        <li><strong>Dreptul la restricționarea prelucrării</strong> — poți cere limitarea modului în care folosim datele tale</li>
+                        <li><strong>Dreptul la portabilitate</strong> — poți primi datele tale într-un format structurat, utilizat în mod curent și care poate fi citit automat</li>
+                        <li><strong>Dreptul la opoziție</strong> — poți te opune prelucrării datelor în anumite situații</li>
+                        <li><strong>Dreptul de retragere a consimțământului</strong> — poți retrage consimțământul oricând, fără a afecta legalitatea prelucrării anterioare</li>
+                    </ul>
+                    <div class="info-card">
+                        <p><strong>Cum îți exerciți drepturile?</strong></p>
+                        <p>Trimite un email la <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a> cu subiectul „Drepturi GDPR" și descrie solicitarea ta.</p>
+                        <p>Vom răspunde în maximum <span class="highlight">30 de zile</span> de la primirea cererii.</p>
+                    </div>
+                </section>
+
+                <!-- 8. Cookies -->
+                <section class="legal-section fade-in" id="cookies">
+                    <h2><span class="section-number">8</span> Cookies</h2>
+                    <p>Folosim cookies și tehnologii similare pentru funcționarea corectă a site-ului și pentru a-ți oferi o experiență mai bună.</p>
+                    <p>Pentru detalii complete despre tipurile de cookies folosite, scopul lor și cum le poți gestiona, consultă <a href="cookies.html">Politica de Cookies</a>.</p>
+                </section>
+
+                <!-- 9. Securitatea datelor -->
+                <section class="legal-section fade-in" id="securitate">
+                    <h2><span class="section-number">9</span> Securitatea datelor</h2>
+                    <p>Protejăm datele tale prin măsuri tehnice și organizatorice adecvate:</p>
+                    <ul>
+                        <li><strong>Criptare HTTPS/SSL</strong> — toate comunicările dintre browserul tău și serverele noastre sunt criptate</li>
+                        <li><strong>Acces restricționat</strong> — doar personalul autorizat are acces la datele personale, pe baza principiului „need-to-know"</li>
+                        <li><strong>Procesare securizată a plăților</strong> — prin Stripe, certificat PCI DSS Nivel 1 (cel mai înalt standard de securitate)</li>
+                        <li><strong>Monitorizare continuă</strong> — monitorizăm accesul la date și potențialele incidente de securitate</li>
+                    </ul>
+                    <p>Nicio metodă de transmisie sau stocare electronică nu este 100% sigură. Cu toate acestea, ne angajăm să folosim mijloace acceptate comercial pentru a proteja datele tale.</p>
+                </section>
+
+                <!-- 10. Modificări ale politicii -->
+                <section class="legal-section fade-in" id="modificari">
+                    <h2><span class="section-number">10</span> Modificări ale politicii</h2>
+                    <p>Ne rezervăm dreptul de a actualiza această politică de confidențialitate. Modificările vor fi publicate pe această pagină cu data ultimei actualizări.</p>
+                    <p>Pentru modificări semnificative, vom afișa o notificare vizibilă pe site. Continuarea utilizării serviciului după publicarea modificărilor constituie acceptarea noii politici.</p>
+                </section>
+
+                <!-- 11. Autoritatea de supraveghere -->
+                <section class="legal-section fade-in" id="autoritate">
+                    <h2><span class="section-number">11</span> Autoritatea de supraveghere</h2>
+                    <p>Dacă nu ești mulțumit de modul în care gestionăm datele tale, ai dreptul de a depune o plângere la autoritatea de supraveghere:</p>
+                    <div class="info-card">
+                        <p><strong>ANSPDCP</strong> — Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal</p>
+                        <p>B-dul G-ral. Gheorghe Magheru nr. 28-30, Sector 1, București, cod poștal 010336</p>
+                        <p>Website: <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">anspdcp.ro</a></p>
+                    </div>
+                    <p>Înainte de a contacta ANSPDCP, te rugăm să ne scrii la <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a>. Vom face tot posibilul să rezolvăm orice problemă direct.</p>
+                </section>
+
+                <!-- 12. Contact -->
+                <section class="legal-section fade-in" id="contact">
+                    <h2><span class="section-number">12</span> Contact</h2>
+                    <p>Pentru orice întrebări legate de protecția datelor personale sau pentru exercitarea drepturilor tale:</p>
+                    <div class="info-card">
+                        <p><strong>Responsabil protecția datelor (DPO)</strong></p>
+                        <p>Email: <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></p>
+                        <p>Subiect recomandat: „Drepturi GDPR" sau „Protecția datelor"</p>
+                        <p>Timp de răspuns: maximum 30 de zile calendaristice</p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo"><a href="index.html">RefrenulMeu<span>.ro</span></a></div>
+                    <p>Melodii personalizate create de Domnul Dirijor pentru orice ocazie. Cadoul perfect, în doar câteva minute.</p>
+                    <p class="license-note">Melodiile sunt create cu ajutorul tehnologiei avansate de compoziție muzicală. Licențiate pentru uz personal și evenimente private.</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="termeni.html">Termeni și condiții</a></li>
+                        <li><a href="confidentialitate.html">Confidențialitate</a></li>
+                        <li><a href="cookies.html">Politica de cookies</a></li>
+                        <li><a href="retur.html">Politica de retur</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                        <!-- SOCIAL_LINKS_HERE -->
+                        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                        <li><a href="#" aria-label="TikTok">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024-2026 RefrenulMeu.ro — Toate drepturile rezervate.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========== FADE-IN ON SCROLL ==========
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ========== SMOOTH SCROLL FOR TOC LINKS ==========
+        document.querySelectorAll('.toc a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    const headerOffset = 90;
+                    const elementPosition = targetEl.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

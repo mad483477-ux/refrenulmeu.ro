@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politica de Cookies — RefrenulMeu.ro</title>
+    <meta name="description" content="Politica de cookies a RefrenulMeu.ro. Află ce cookie-uri folosim, de ce și cum le poți gestiona.">
+    <meta property="og:title" content="Politica de Cookies — RefrenulMeu.ro">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://refrenulmeu.ro/cookies.html">
+    <meta property="og:locale" content="ro_RO">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-alt: #1a1a1a;
+            --border-subtle: #2a2a2a;
+            --text-primary: #fafafa;
+            --text-secondary: #a0a0a0;
+            --accent: #7C3AED;
+            --accent-hover: #6D28D9;
+            --gold: #D4A843;
+            --success: #22C55E;
+            --error: #EF4444;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .page-content {
+            padding: 120px 20px 80px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            margin-top: 24px;
+            color: var(--gold);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .section ul {
+            list-style: none;
+            margin-bottom: 16px;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* ========== COOKIE TABLE ========== */
+        .cookie-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 640px;
+        }
+
+        .cookie-table thead {
+            background: var(--bg-card-alt);
+        }
+
+        .cookie-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .cookie-table td {
+            padding: 12px 16px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+        }
+
+        .cookie-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cookie-table tbody tr:hover {
+            background: rgba(124, 58, 237, 0.04);
+        }
+
+        .cookie-name {
+            font-family: 'Inter', monospace;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+
+        .cookie-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-essential {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+        }
+
+        .badge-analytics {
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--accent);
+        }
+
+        .badge-payment {
+            background: rgba(212, 168, 67, 0.15);
+            color: var(--gold);
+        }
+
+        .badge-functional {
+            background: rgba(96, 165, 250, 0.15);
+            color: #60A5FA;
+        }
+
+        /* ========== BROWSER INSTRUCTIONS ========== */
+        .browser-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .browser-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .browser-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .browser-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .browser-card code {
+            font-size: 0.82rem;
+            background: var(--bg-card-alt);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--gold);
+        }
+
+        /* ========== INFO BOX ========== */
+        .info-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .info-box strong {
+            color: var(--text-primary);
+        }
+
+        /* ========== CONTACT BOX ========== */
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .contact-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-box a.email-link {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .contact-box a.email-link:hover {
+            color: var(--accent);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 300px;
+        }
+
+        .license-note {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            opacity: 0.6;
+            line-height: 1.5;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== FADE-IN ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.7rem;
+            }
+
+            .page-content {
+                padding: 100px 20px 60px;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+            }
+
+            .browser-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-box {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="RefrenulMeu.ro — Pagina principală">RefrenulMeu<span>.ro</span></a>
+            <a href="index.html" class="back-link" aria-label="Înapoi la pagina principală">&#8592; Înapoi</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-content">
+
+            <h1 class="page-title fade-in">Politica de Cookies</h1>
+            <p class="page-subtitle fade-in">Ultima actualizare: 4 martie 2026</p>
+
+            <!-- 1. Ce sunt cookie-urile -->
+            <div class="section fade-in">
+                <h2>1. Ce sunt cookie-urile?</h2>
+                <p>Cookie-urile sunt fișiere mici de text salvate pe dispozitivul tău atunci când vizitezi un site web. Ele ajută site-ul să funcționeze corect, să rețină preferințele tale și să ne ofere informații despre cum este utilizat site-ul.</p>
+                <p>RefrenulMeu.ro folosește cookie-uri strict necesare pentru a-ți oferi o experiență sigură și funcțională.</p>
+            </div>
+
+            <!-- 2. Ce cookie-uri folosim -->
+            <div class="section fade-in">
+                <h2>2. Ce cookie-uri folosim</h2>
+
+                <h3>Cookie-uri esențiale (strict necesare)</h3>
+                <p>Aceste cookie-uri sunt indispensabile pentru funcționarea site-ului. Fără ele, nu poți plasa o comandă sau naviga corect. <strong>Nu necesită consimțământ.</strong></p>
+                <ul>
+                    <li>Sesiune utilizator și autentificare</li>
+                    <li>Preferințe formular (stilul muzical ales, opțiuni selectate)</li>
+                    <li>Coș de cumpărături și progresul comenzii</li>
+                </ul>
+
+                <h3>Cookie-uri analitice</h3>
+                <p>Folosim Vercel Analytics pentru a înțelege cum interacționezi cu site-ul: ce pagini sunt vizitate, de unde vin vizitatorii, timp petrecut pe pagină. Datele sunt anonimizate. <strong>Necesită consimțământul tău.</strong></p>
+
+                <h3>Cookie-uri de plată (Stripe)</h3>
+                <p>Stripe, procesatorul nostru de plăți, setează cookie-uri pentru securitate antifraudă și procesarea tranzacțiilor. Aceste cookie-uri sunt necesare doar când inițiezi o plată.</p>
+
+                <h3>Cookie-uri funcționale</h3>
+                <p>Rețin preferințele tale (de exemplu, dacă ai mai vizitat site-ul, tema aleasă sau ultima melodie ascultată) pentru a personaliza experiența.</p>
+            </div>
+
+            <!-- 3. Tabel cu cookie-urile -->
+            <div class="section fade-in">
+                <h2>3. Tabelul cookie-urilor</h2>
+                <div class="cookie-table-wrapper">
+                    <table class="cookie-table">
+                        <thead>
+                            <tr>
+                                <th>Cookie</th>
+                                <th>Furnizor</th>
+                                <th>Scop</th>
+                                <th>Durată</th>
+                                <th>Tip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="cookie-name">session_id</span></td>
+                                <td>RefrenulMeu.ro</td>
+                                <td>Identificarea sesiunii curente</td>
+                                <td>Sesiune</td>
+                                <td><span class="cookie-badge badge-essential">Esențial</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">form_prefs</span></td>
+                                <td>RefrenulMeu.ro</td>
+                                <td>Salvarea preferințelor din formular</td>
+                                <td>7 zile</td>
+                                <td><span class="cookie-badge badge-essential">Esențial</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">cart_data</span></td>
+                                <td>RefrenulMeu.ro</td>
+                                <td>Datele coșului de cumpărături</td>
+                                <td>24 ore</td>
+                                <td><span class="cookie-badge badge-essential">Esențial</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">cookie_consent</span></td>
+                                <td>RefrenulMeu.ro</td>
+                                <td>Stocarea preferinței de consimțământ</td>
+                                <td>12 luni</td>
+                                <td><span class="cookie-badge badge-essential">Esențial</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">_vercel_insights</span></td>
+                                <td>Vercel</td>
+                                <td>Statistici anonime de trafic</td>
+                                <td>Sesiune</td>
+                                <td><span class="cookie-badge badge-analytics">Analitic</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">_ga / _gid</span></td>
+                                <td>Google Analytics</td>
+                                <td>Analiză trafic (dacă este activat)</td>
+                                <td>2 ani / 24 ore</td>
+                                <td><span class="cookie-badge badge-analytics">Analitic</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">__stripe_mid</span></td>
+                                <td>Stripe</td>
+                                <td>Identificare dispozitiv pentru plăți</td>
+                                <td>1 an</td>
+                                <td><span class="cookie-badge badge-payment">Plată</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">__stripe_sid</span></td>
+                                <td>Stripe</td>
+                                <td>Sesiune de plată securizată</td>
+                                <td>30 minute</td>
+                                <td><span class="cookie-badge badge-payment">Plată</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">m</span></td>
+                                <td>Stripe</td>
+                                <td>Prevenire fraudă la tranzacții</td>
+                                <td>2 ani</td>
+                                <td><span class="cookie-badge badge-payment">Plată</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cookie-name">user_prefs</span></td>
+                                <td>RefrenulMeu.ro</td>
+                                <td>Preferințe utilizator (temă, vizite)</td>
+                                <td>6 luni</td>
+                                <td><span class="cookie-badge badge-functional">Funcțional</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4. Cum gestionezi cookie-urile -->
+            <div class="section fade-in">
+                <h2>4. Cum gestionezi cookie-urile</h2>
+                <p>Poți controla și șterge cookie-urile din setările browser-ului tău. Iată cum:</p>
+
+                <div class="browser-grid">
+                    <div class="browser-card">
+                        <h4>Google Chrome</h4>
+                        <p>Setări &rarr; Confidențialitate și securitate &rarr; Cookie-uri și alte date ale site-urilor &rarr; Gestionare cookie-uri</p>
+                    </div>
+                    <div class="browser-card">
+                        <h4>Mozilla Firefox</h4>
+                        <p>Setări &rarr; Confidențialitate și securitate &rarr; Cookie-uri și date site &rarr; Gestionare date</p>
+                    </div>
+                    <div class="browser-card">
+                        <h4>Safari</h4>
+                        <p>Preferințe &rarr; Confidențialitate &rarr; Gestionare date site web &rarr; Eliminare</p>
+                    </div>
+                    <div class="browser-card">
+                        <h4>Microsoft Edge</h4>
+                        <p>Setări &rarr; Cookie-uri și permisiuni site &rarr; Gestionare și ștergere cookie-uri</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Dezactivarea cookie-urilor -->
+            <div class="section fade-in">
+                <h2>5. Dezactivarea cookie-urilor</h2>
+                <div class="info-box">
+                    <p><strong>Atenție:</strong> Dacă dezactivezi cookie-urile esențiale, unele funcționalități ale site-ului nu vor funcționa corect. Nu vei putea finaliza o comandă, iar preferințele tale din formular nu vor fi salvate. Cookie-urile analitice și funcționale pot fi dezactivate fără a afecta funcționalitatea de bază.</p>
+                </div>
+            </div>
+
+            <!-- 6. Cookie-uri terțe -->
+            <div class="section fade-in">
+                <h2>6. Cookie-uri terțe</h2>
+                <p>Site-ul nostru poate seta cookie-uri de la furnizori terți, în mod specific:</p>
+                <ul>
+                    <li><strong>Stripe</strong> — pentru procesarea plăților și prevenirea fraudei. <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Politica de confidențialitate Stripe</a></li>
+                    <li><strong>Vercel Analytics</strong> — pentru statistici anonime de utilizare. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Politica de confidențialitate Vercel</a></li>
+                    <li><strong>Google Analytics</strong> (dacă este activat) — pentru analiză detaliată de trafic. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politica de confidențialitate Google</a></li>
+                </ul>
+                <p>Nu avem control asupra cookie-urilor setate de acești furnizori. Îți recomandăm să consulți politicile lor de confidențialitate.</p>
+            </div>
+
+            <!-- 7. Modificări politică -->
+            <div class="section fade-in">
+                <h2>7. Modificări ale politicii</h2>
+                <p>Ne rezervăm dreptul de a actualiza această politică de cookies. Orice modificare va fi publicată pe această pagină cu data ultimei actualizări. Te încurajăm să verifici periodic această pagină.</p>
+            </div>
+
+            <!-- 8. Contact -->
+            <div class="section fade-in">
+                <h2>8. Contact</h2>
+                <p>Dacă ai întrebări despre cookie-urile pe care le folosim, ne poți contacta oricând:</p>
+                <div class="contact-box">
+                    <p>Scrie-ne la:</p>
+                    <a href="mailto:contact@refrenulmeu.ro" class="email-link" aria-label="Trimite email la contact@refrenulmeu.ro">contact@refrenulmeu.ro</a>
+                </div>
+            </div>
+
+            <!-- 9. Link confidențialitate -->
+            <div class="section fade-in">
+                <div class="info-box">
+                    <p>Pentru informații complete despre cum prelucrăm datele tale personale, consultă <a href="confidentialitate.html"><strong>Politica de Confidențialitate</strong></a>.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">RefrenulMeu<span>.ro</span></div>
+                    <p>Melodii personalizate create de Domnul Dirijor pentru orice ocazie. Cadoul perfect, în doar câteva minute.</p>
+                    <p class="license-note">Melodiile sunt create cu ajutorul tehnologiei avansate de compoziție muzicală. Licențiate pentru uz personal și evenimente private.</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="termeni.html">Termeni și condiții</a></li>
+                        <li><a href="confidentialitate.html">Confidențialitate</a></li>
+                        <li><a href="cookies.html">Politica de cookies</a></li>
+                        <li><a href="retur.html">Politica de retur</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                        <!-- SOCIAL_LINKS_HERE -->
+                        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                        <li><a href="#" aria-label="TikTok">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024-2026 RefrenulMeu.ro — Toate drepturile rezervate.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Fade-in on scroll
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+
+</body>
+</html>

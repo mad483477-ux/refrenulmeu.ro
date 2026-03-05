@@ -1,0 +1,12 @@
+{
+  "name": "refrenulmeu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RefrenulMeu.ro — Melodii personalizate generate de Domnul Dirijor",
+  "dependencies": {
+    "stripe": "^17.0.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.38.0"
+  }
+}

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politica de Retur — RefrenulMeu.ro</title>
+    <meta name="description" content="Politica de retur și rambursare RefrenulMeu.ro. Informații despre drepturile tale și procesul de solicitare a rambursării pentru melodiile personalizate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-alt: #1a1a1a;
+            --border-subtle: #2a2a2a;
+            --text-primary: #fafafa;
+            --text-secondary: #a0a0a0;
+            --accent: #7C3AED;
+            --accent-hover: #6D28D9;
+            --gold: #D4A843;
+            --gold-hover: #c49a3a;
+            --success: #22C55E;
+            --error: #EF4444;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* ========== PAGE CONTENT ========== */
+        .page-content {
+            padding: 120px 0 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 48px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: var(--text-primary);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .section p + p {
+            margin-top: 8px;
+        }
+
+        /* Cards for eligible/ineligible */
+        .refund-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+
+        .refund-card.eligible {
+            border-left: 3px solid var(--success);
+        }
+
+        .refund-card.ineligible {
+            border-left: 3px solid var(--error);
+        }
+
+        .refund-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+        }
+
+        .refund-item + .refund-item {
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .refund-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .refund-icon.yes {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+        }
+
+        .refund-icon.no {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--error);
+        }
+
+        .refund-item-content strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .refund-item-content span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+
+        .highlight-box.accent {
+            border-left: 3px solid var(--accent);
+        }
+
+        .highlight-box.gold {
+            border-left: 3px solid var(--gold);
+        }
+
+        .highlight-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .highlight-box strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .highlight-box a:hover {
+            color: var(--gold-hover);
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .contact-cta h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-cta p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta a.btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--text-primary);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-cta a.btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== FADE-IN ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.6rem;
+            }
+
+            .page-content {
+                padding: 100px 20px 60px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-title {
+                font-size: 1.4rem;
+            }
+
+            .refund-card {
+                padding: 16px;
+            }
+
+            .contact-cta {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="RefrenulMeu.ro - Pagina principală">RefrenulMeu<span>.ro</span></a>
+            <a href="index.html" class="back-link" aria-label="Înapoi la pagina principală">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Înapoi
+            </a>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+        <div class="container">
+            <div class="page-content">
+                <h1 class="page-title fade-in">Politica de Retur și Rambursare</h1>
+                <p class="page-subtitle fade-in">Ultima actualizare: Martie 2026</p>
+
+                <!-- 1. Natura produsului -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">1</span>
+                        Natura produsului
+                    </h2>
+                    <p>RefrenulMeu.ro oferă produse digitale — melodii personalizate generate instant și livrate electronic. Odată ce comanda este procesată, melodia ta este creată în câteva minute și devine disponibilă imediat pentru ascultare și descărcare.</p>
+                </div>
+
+                <!-- 2. Cadrul legal -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">2</span>
+                        Cadrul legal
+                    </h2>
+                    <p>Conform <strong>OUG 34/2014, art. 16, lit. m)</strong>, conținutul digital livrat instant, cu acordul expres al consumatorului, nu beneficiază de dreptul de retragere în 14 zile. La plasarea comenzii, confirmi explicit că ești de acord cu începerea imediată a prestării serviciului și că renunți la dreptul de retragere.</p>
+                </div>
+
+                <!-- 3. Când oferim rambursare/regenerare -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">3</span>
+                        Când oferim rambursare sau regenerare
+                    </h2>
+                    <p>Ne dorim ca fiecare client să fie mulțumit. Dacă apare o problemă reală, suntem aici să o rezolvăm:</p>
+
+                    <div class="refund-card eligible">
+                        <div class="refund-item">
+                            <div class="refund-icon yes" aria-hidden="true">&#10003;</div>
+                            <div class="refund-item-content">
+                                <strong>Eroare tehnică gravă</strong>
+                                <span>Melodia nu se generează sau fișierul este corupt. Primești regenerare gratuită sau rambursare 100%.</span>
+                            </div>
+                        </div>
+                        <div class="refund-item">
+                            <div class="refund-icon yes" aria-hidden="true">&#10003;</div>
+                            <div class="refund-item-content">
+                                <strong>Elementele solicitate lipsesc</strong>
+                                <span>Numele destinatarului este greșit sau stilul muzical este complet diferit de cel ales. Primești regenerare gratuită.</span>
+                            </div>
+                        </div>
+                        <div class="refund-item">
+                            <div class="refund-icon yes" aria-hidden="true">&#10003;</div>
+                            <div class="refund-item-content">
+                                <strong>Probleme de calitate audio</strong>
+                                <span>Defecte evidente de sunet (zgomote, distorsiuni, întreruperi). Primești regenerare gratuită.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Când NU oferim rambursare -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">4</span>
+                        Când nu oferim rambursare
+                    </h2>
+                    <p>Fiind un produs digital generat la comandă, există situații în care rambursarea nu este posibilă:</p>
+
+                    <div class="refund-card ineligible">
+                        <div class="refund-item">
+                            <div class="refund-icon no" aria-hidden="true">&#10005;</div>
+                            <div class="refund-item-content">
+                                <strong>Preferințe subiective</strong>
+                                <span>Nu îți place stilul vocii sau interpretarea. Gusturile muzicale sunt subiective și nu constituie un defect.</span>
+                            </div>
+                        </div>
+                        <div class="refund-item">
+                            <div class="refund-icon no" aria-hidden="true">&#10005;</div>
+                            <div class="refund-item-content">
+                                <strong>Schimbarea părerii</strong>
+                                <span>Ai decis că nu mai dorești melodia după ce aceasta a fost deja generată.</span>
+                            </div>
+                        </div>
+                        <div class="refund-item">
+                            <div class="refund-icon no" aria-hidden="true">&#10005;</div>
+                            <div class="refund-item-content">
+                                <strong>Melodie descărcată și ascultată</strong>
+                                <span>Produsul digital a fost livrat și utilizat conform destinației sale.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Procesul de solicitare -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">5</span>
+                        Cum soliciți rambursarea
+                    </h2>
+                    <div class="highlight-box accent">
+                        <p>Trimite un email la <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a> cu următoarele informații:</p>
+                        <p style="margin-top: 12px;"><strong>1.</strong> Numărul comenzii<br>
+                        <strong>2.</strong> Descrierea problemei întâmpinate<br>
+                        <strong>3.</strong> Trimite solicitarea în maximum <strong>48 de ore</strong> de la plasarea comenzii</p>
+                    </div>
+                </div>
+
+                <!-- 6. Timp de procesare -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">6</span>
+                        Timp de procesare
+                    </h2>
+                    <p>Răspundem la fiecare solicitare în maximum <strong>24 de ore</strong>. În cazul aprobării rambursării, suma va fi returnată pe cardul original în <strong>5-14 zile lucrătoare</strong>, în funcție de banca emitentă.</p>
+                </div>
+
+                <!-- 7. Retry gratuit -->
+                <div class="section fade-in">
+                    <h2 class="section-title">
+                        <span class="section-number">7</span>
+                        Regenerare gratuită pe platformă
+                    </h2>
+                    <div class="highlight-box gold">
+                        <p>Înainte de a solicita o rambursare, ai posibilitatea de a regenera melodia gratuit, direct pe platformă. Fiecare comandă include <strong>1 regenerare suplimentară</strong> (retry), care îți oferă 2 variante noi ale melodiei tale. Folosește această opțiune înainte de a ne contacta — de cele mai multe ori rezolvă situația.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Contact -->
+                <div class="contact-cta fade-in">
+                    <h3>Ai o problemă cu comanda ta?</h3>
+                    <p>Suntem aici să te ajutăm. Scrie-ne și rezolvăm împreună.</p>
+                    <a href="mailto:contact@refrenulmeu.ro" class="btn" aria-label="Trimite email la contact@refrenulmeu.ro">contact@refrenulmeu.ro</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">RefrenulMeu<span>.ro</span></div>
+                    <p>Melodii personalizate create de Domnul Dirijor pentru orice ocazie. Cadoul perfect, în doar câteva minute.</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="termeni.html">Termeni și condiții</a></li>
+                        <li><a href="confidentialitate.html">Confidențialitate</a></li>
+                        <li><a href="cookies.html">Politica de cookies</a></li>
+                        <li><a href="retur.html">Politica de retur</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024-2026 RefrenulMeu.ro — Toate drepturile rezervate.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

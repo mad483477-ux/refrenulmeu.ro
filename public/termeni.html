@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termeni și Condiții — RefrenulMeu.ro</title>
+    <meta name="description" content="Termeni și condiții de utilizare a platformei RefrenulMeu.ro — melodii personalizate generate cu tehnologie avansată de compoziție.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-alt: #1a1a1a;
+            --border-subtle: #2a2a2a;
+            --text-primary: #fafafa;
+            --text-secondary: #a0a0a0;
+            --accent: #7C3AED;
+            --accent-hover: #6D28D9;
+            --gold: #D4A843;
+            --success: #22C55E;
+            --error: #EF4444;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .logo a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo a:hover {
+            opacity: 0.85;
+        }
+
+        .back-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .legal-page {
+            padding: 120px 0 80px;
+        }
+
+        .legal-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .legal-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .legal-header .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .legal-content {
+            max-width: 860px;
+        }
+
+        .legal-section {
+            margin-bottom: 48px;
+        }
+
+        .legal-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-section h2 .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .legal-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .legal-section p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            margin-bottom: 16px;
+            padding-left: 0;
+        }
+
+        .legal-section ul li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .legal-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .legal-section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .legal-section a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-color: rgba(124, 58, 237, 0.3);
+            text-underline-offset: 3px;
+            transition: text-decoration-color 0.3s ease;
+        }
+
+        .legal-section a:hover {
+            text-decoration-color: var(--accent);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .price-table th {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--bg-card);
+        }
+
+        .price-table td {
+            color: var(--text-secondary);
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-highlight {
+            color: var(--gold) !important;
+            font-weight: 600;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+        }
+
+        .toc h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            padding-left: 0;
+        }
+
+        .toc ol li {
+            counter-increment: toc-counter;
+            margin-bottom: 8px;
+        }
+
+        .toc ol li a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .toc ol li a::before {
+            content: counter(toc-counter) ".";
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            min-width: 22px;
+        }
+
+        .toc ol li a:hover {
+            color: var(--text-primary);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .license-note {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            opacity: 0.6;
+            line-height: 1.5;
+        }
+
+        /* ========== FADE-IN ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .legal-page {
+                padding: 100px 0 60px;
+            }
+
+            .legal-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .legal-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .toc {
+                padding: 20px;
+            }
+
+            .highlight-box {
+                padding: 16px 18px;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .legal-header h1 {
+                font-size: 1.45rem;
+            }
+
+            .legal-section h2 .section-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+
+            .price-table {
+                font-size: 0.85rem;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="Pagina principală RefrenulMeu.ro">RefrenulMeu<span>.ro</span></a>
+            </div>
+            <a href="index.html" class="back-link" aria-label="Înapoi la pagina principală">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Înapoi
+            </a>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="legal-page" role="main">
+        <div class="container">
+            <div class="legal-header fade-in">
+                <h1>Termeni și Condiții</h1>
+                <p class="last-updated">Ultima actualizare: 4 martie 2026</p>
+            </div>
+
+            <div class="legal-content">
+
+                <!-- Table of Contents -->
+                <nav class="toc fade-in" aria-label="Cuprins">
+                    <h3>Cuprins</h3>
+                    <ol>
+                        <li><a href="#informatii-generale">Informații generale</a></li>
+                        <li><a href="#definitii">Definiții</a></li>
+                        <li><a href="#descrierea-serviciului">Descrierea serviciului</a></li>
+                        <li><a href="#procesul-de-comanda">Procesul de comandă</a></li>
+                        <li><a href="#preturi-si-plata">Prețuri și plata</a></li>
+                        <li><a href="#proprietate-intelectuala">Dreptul de proprietate intelectuală</a></li>
+                        <li><a href="#politica-de-livrare">Politica de livrare</a></li>
+                        <li><a href="#dreptul-de-retragere">Dreptul de retragere</a></li>
+                        <li><a href="#limitarea-raspunderii">Limitarea răspunderii</a></li>
+                        <li><a href="#modificari">Modificări ale termenilor</a></li>
+                        <li><a href="#legea-aplicabila">Legea aplicabilă</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ol>
+                </nav>
+
+                <!-- 1. Informații generale -->
+                <section class="legal-section fade-in" id="informatii-generale">
+                    <h2><span class="section-number">1</span> Informații generale</h2>
+                    <p>Platforma <strong>RefrenulMeu.ro</strong> este operată de <strong>SC [NUMELE_FIRMEI] SRL</strong>, societate comercială înregistrată conform legislației române.</p>
+                    <ul>
+                        <li><strong>CUI:</strong> [CUI_HERE]</li>
+                        <li><strong>Nr. Reg. Com.:</strong> J[__]/[____]/[____]</li>
+                        <li><strong>Sediu social:</strong> [ADRESA_HERE]</li>
+                        <li><strong>Cod CAEN principal:</strong> 5920 — Activități de realizare a înregistrărilor audio</li>
+                        <li><strong>Cod CAEN secundar:</strong> 9003 — Activități de creație artistică</li>
+                        <li><strong>Email:</strong> <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                    </ul>
+                    <p>Prin accesarea și utilizarea platformei RefrenulMeu.ro, confirmați că ați citit, înțeles și acceptat acești termeni și condiții în integralitate.</p>
+                </section>
+
+                <!-- 2. Definiții -->
+                <section class="legal-section fade-in" id="definitii">
+                    <h2><span class="section-number">2</span> Definiții</h2>
+                    <ul>
+                        <li><strong>Platforma</strong> — site-ul web RefrenulMeu.ro și toate funcționalitățile asociate acestuia.</li>
+                        <li><strong>Utilizator</strong> — orice persoană fizică sau juridică care accesează platforma și/sau plasează o comandă.</li>
+                        <li><strong>Melodie personalizată</strong> — compoziție muzicală originală generată prin tehnologie avansată de compoziție, pe baza informațiilor furnizate de Utilizator.</li>
+                        <li><strong>Serviciu</strong> — ansamblul de funcționalități oferite prin Platformă, inclusiv crearea, generarea și livrarea de melodii personalizate.</li>
+                        <li><strong>Comandă</strong> — cererea plasată de Utilizator prin completarea formularului de pe Platformă și efectuarea plății.</li>
+                        <li><strong>Domnul Dirijor</strong> — mascota și identitatea creativă a platformei, sub care sunt prezentate serviciile de compoziție.</li>
+                    </ul>
+                </section>
+
+                <!-- 3. Descrierea serviciului -->
+                <section class="legal-section fade-in" id="descrierea-serviciului">
+                    <h2><span class="section-number">3</span> Descrierea serviciului</h2>
+                    <p>RefrenulMeu.ro oferă un serviciu de creare a melodiilor personalizate folosind <strong>tehnologie avansată de compoziție muzicală asistată de inteligență artificială</strong>. Melodiile sunt generate automat pe baza informațiilor, preferințelor și poveștii furnizate de Utilizator prin formularul de comandă.</p>
+                    <p>Serviciul include:</p>
+                    <ul>
+                        <li>Generarea a două variante muzicale pentru fiecare comandă</li>
+                        <li>Livrare digitală (fișiere audio)</li>
+                        <li>Opțiuni de personalizare: alegerea stilului muzical, a tonului, a destinatarului și a ocaziei</li>
+                        <li>Opțiuni suplimentare: versuri personalizate, atingeri personale (dedicații)</li>
+                    </ul>
+                    <p>Melodiile sunt livrate exclusiv în format digital. Nu se oferă suport fizic (CD, vinil etc.).</p>
+                </section>
+
+                <!-- 4. Procesul de comandă -->
+                <section class="legal-section fade-in" id="procesul-de-comanda">
+                    <h2><span class="section-number">4</span> Procesul de comandă</h2>
+                    <p>Plasarea unei comenzi presupune parcurgerea următoarelor etape:</p>
+                    <ul>
+                        <li><strong>Completarea formularului</strong> — Utilizatorul furnizează informații despre destinatar, ocazie, stilul muzical dorit, tonul și povestea personală.</li>
+                        <li><strong>Selectarea pachetului și opțiunilor</strong> — Utilizatorul alege pachetul de preț și opțiunile suplimentare dorite.</li>
+                        <li><strong>Efectuarea plății</strong> — Plata se realizează online, prin card bancar, via procesatorul securizat Stripe.</li>
+                        <li><strong>Generarea melodiei</strong> — După confirmarea plății, Domnul Dirijor începe compoziția melodiei personalizate.</li>
+                        <li><strong>Livrarea</strong> — Melodia finalizată (două variante) este livrată pe email și pe pagina de compunere dedicată.</li>
+                    </ul>
+                    <p>Prin finalizarea plății, Utilizatorul confirmă că toate informațiile furnizate sunt corecte și că acceptă prezentele condiții.</p>
+                </section>
+
+                <!-- 5. Prețuri și plata -->
+                <section class="legal-section fade-in" id="preturi-si-plata">
+                    <h2><span class="section-number">5</span> Prețuri și plata</h2>
+                    <p>Prețurile afișate pe platformă <strong>includ TVA</strong> și sunt exprimate în <strong>lei (RON)</strong>.</p>
+
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Pachet</th>
+                                <th>Preț</th>
+                                <th>Include</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Simplu</td>
+                                <td class="price-highlight">39.99 lei</td>
+                                <td>Melodie personalizată + 2 variante</td>
+                            </tr>
+                            <tr>
+                                <td>Special</td>
+                                <td class="price-highlight">59.99 lei</td>
+                                <td>Melodie personalizată + 2 variante + personalizare extinsă</td>
+                            </tr>
+                            <tr>
+                                <td>Premium</td>
+                                <td class="price-highlight">89.99 lei</td>
+                                <td>Melodie personalizată + 2 variante + personalizare completă</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Opțiunile suplimentare (versuri personalizate, dedicații) au prețuri separate, afișate clar înainte de plată. Prețul total este calculat și prezentat Utilizatorului înainte de confirmarea comenzii.</p>
+
+                    <h3>Metode de plată</h3>
+                    <p>Plata se efectuează exclusiv online, prin card bancar (Visa, Mastercard), folosind procesatorul de plăți <strong>Stripe</strong>. RefrenulMeu.ro nu stochează datele cardului. Toate tranzacțiile sunt procesate de Stripe în condiții de securitate conformă standardului PCI DSS.</p>
+
+                    <h3>Facturare</h3>
+                    <p>Pentru fiecare comandă se emite o confirmare de plată pe email. Factura fiscală poate fi solicitată la adresa <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a>.</p>
+                </section>
+
+                <!-- 6. Proprietate intelectuală -->
+                <section class="legal-section fade-in" id="proprietate-intelectuala">
+                    <h2><span class="section-number">6</span> Dreptul de proprietate intelectuală</h2>
+
+                    <h3>Melodiile personalizate</h3>
+                    <p>Melodiile generate prin intermediul platformei sunt create cu ajutorul tehnologiei avansate de compoziție muzicală asistată de inteligență artificială. Prin achiziționarea unei melodii, Utilizatorul primește o <strong>licență de utilizare</strong> în următoarele condiții:</p>
+
+                    <div class="highlight-box">
+                        <p><strong>Utilizări permise:</strong> uz personal, cadou, prezentare la evenimente private (petreceri, nunți, aniversări), partajare pe rețele sociale personale.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p><strong>Utilizări interzise fără acord scris:</strong> revânzare, sublicențiere, utilizare comercială (reclame, spoturi publicitare, produse comerciale), distribuire în scop de profit, înregistrare ca operă proprie la organismele de drepturi de autor.</p>
+                    </div>
+
+                    <p><strong>Nu se transferă drepturi de autor complete.</strong> Utilizatorul primește dreptul de a folosi melodia conform licenței descrise mai sus. Pentru utilizare comercială, contactați-ne la <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a> pentru o licență extinsă.</p>
+
+                    <h3>Conținutul platformei</h3>
+                    <p>Toate elementele platformei (design, texte, grafică, logo, codul sursă) sunt proprietatea SC [NUMELE_FIRMEI] SRL și sunt protejate de legislația română și internațională privind drepturile de autor. Reproducerea fără acord scris este interzisă.</p>
+                </section>
+
+                <!-- 7. Politica de livrare -->
+                <section class="legal-section fade-in" id="politica-de-livrare">
+                    <h2><span class="section-number">7</span> Politica de livrare</h2>
+                    <p>Melodiile personalizate sunt <strong>livrate exclusiv în format digital</strong>, prin următoarele canale:</p>
+                    <ul>
+                        <li><strong>Pagina de compunere</strong> — imediat după generare, Utilizatorul poate asculta și descărca melodia de pe pagina dedicată comenzii.</li>
+                        <li><strong>Email</strong> — un link de acces este trimis pe adresa de email furnizată la comandă.</li>
+                    </ul>
+                    <p>Timpul estimat de livrare este de <strong>maximum 10 minute</strong> de la confirmarea plății. În cazuri excepționale (volum mare de comenzi, probleme tehnice), timpul poate fi mai mare, iar Utilizatorul va fi notificat.</p>
+                    <p>Linkul de acces la melodie rămâne activ pentru o perioadă de 30 de zile de la generare. Recomandăm descărcarea fișierelor imediat după primire.</p>
+                </section>
+
+                <!-- 8. Dreptul de retragere -->
+                <section class="legal-section fade-in" id="dreptul-de-retragere">
+                    <h2><span class="section-number">8</span> Dreptul de retragere</h2>
+                    <p>Conform <strong>OUG 34/2014</strong> privind drepturile consumatorilor (transpunerea Directivei 2011/83/UE), conținutul digital livrat instant <strong>nu beneficiază de dreptul de retragere</strong> în 14 zile, dacă sunt îndeplinite cumulativ următoarele condiții:</p>
+                    <ul>
+                        <li>Consumatorul a fost informat despre pierderea dreptului de retragere înainte de plasarea comenzii.</li>
+                        <li>Consumatorul și-a exprimat acordul explicit pentru începerea executării contractului înainte de expirarea termenului de retragere.</li>
+                        <li>Conținutul digital a fost livrat imediat după plată.</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p>Prin finalizarea plății pe RefrenulMeu.ro, Utilizatorul confirmă că a fost informat și acceptă că <strong>renunță la dreptul de retragere</strong> pentru conținutul digital livrat instant.</p>
+                    </div>
+
+                    <h3>Excepții</h3>
+                    <p>În cazul unei <strong>erori tehnice grave</strong> care face melodia imposibil de ascultat sau descărcat, oferim gratuit:</p>
+                    <ul>
+                        <li>Regenerarea melodiei (încă o încercare, rezultând în maximum 4 variante totale)</li>
+                        <li>Dacă problema persistă, contact direct la <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a> pentru soluționare</li>
+                    </ul>
+                    <p>Pentru detalii suplimentare, consultați <a href="retur.html">Politica de retur</a>.</p>
+                </section>
+
+                <!-- 9. Limitarea răspunderii -->
+                <section class="legal-section fade-in" id="limitarea-raspunderii">
+                    <h2><span class="section-number">9</span> Limitarea răspunderii</h2>
+                    <p>RefrenulMeu.ro depune toate eforturile pentru a oferi melodii de calitate, relevante și personalizate conform informațiilor primite. Cu toate acestea:</p>
+                    <ul>
+                        <li><strong>Nu garantăm</strong> potrivirea 100% a melodiei cu așteptările subiective ale Utilizatorului. Rezultatul artistic poate varia.</li>
+                        <li><strong>Nu suntem răspunzători</strong> pentru informații incorecte, incomplete sau ambigue furnizate de Utilizator în formularul de comandă.</li>
+                        <li><strong>Nu suntem răspunzători</strong> pentru eventuale probleme tehnice ale terților (procesator de plăți, furnizor de email, conexiune la internet a Utilizatorului).</li>
+                        <li><strong>Oferim o regenerare gratuită</strong> (retry) dacă Utilizatorul consideră că melodia nu corespunde cerințelor formularului completat.</li>
+                    </ul>
+                    <p>Răspunderea totală a SC [NUMELE_FIRMEI] SRL față de Utilizator nu va depăși valoarea comenzii respective.</p>
+                </section>
+
+                <!-- 10. Modificări ale termenilor -->
+                <section class="legal-section fade-in" id="modificari">
+                    <h2><span class="section-number">10</span> Modificări ale termenilor</h2>
+                    <p>Ne rezervăm dreptul de a modifica acești termeni și condiții oricând, fără notificare prealabilă. Versiunea actualizată va fi publicată pe această pagină cu data ultimei modificări.</p>
+                    <p>Continuarea utilizării platformei după publicarea modificărilor constituie acceptarea noilor termeni. Recomandăm consultarea periodică a acestei pagini.</p>
+                    <p>Comenzile plasate anterior modificării termenilor rămân supuse condițiilor valabile la momentul plasării comenzii.</p>
+                </section>
+
+                <!-- 11. Legea aplicabilă -->
+                <section class="legal-section fade-in" id="legea-aplicabila">
+                    <h2><span class="section-number">11</span> Legea aplicabilă</h2>
+                    <p>Prezentele condiții sunt guvernate de <strong>legislația din România</strong>.</p>
+                    <p>Orice litigiu apărut în legătură cu utilizarea platformei sau executarea comenzilor va fi soluționat pe cale amiabilă. În cazul în care nu se ajunge la un acord, litigiul va fi supus instanțelor judecătorești competente de la sediul SC [NUMELE_FIRMEI] SRL.</p>
+                    <p>Utilizatorii persoane fizice au dreptul de a se adresa <strong>ANPC</strong> (Autoritatea Națională pentru Protecția Consumatorilor) sau platformei europene de soluționare a litigiilor online <strong>(SOL/ODR)</strong> la adresa: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+                </section>
+
+                <!-- 12. Contact -->
+                <section class="legal-section fade-in" id="contact">
+                    <h2><span class="section-number">12</span> Contact</h2>
+                    <p>Pentru orice întrebări, solicitări sau reclamații legate de acești termeni sau de serviciile noastre, ne puteți contacta la:</p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                        <li><strong>Telefon:</strong> 07XX XXX XXX <!-- PHONE_HERE --></li>
+                        <li><strong>Sediu:</strong> [ADRESA_HERE]</li>
+                    </ul>
+                    <p>Timp de răspuns estimat: maximum 48 de ore lucrătoare.</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo"><a href="index.html">RefrenulMeu<span>.ro</span></a></div>
+                    <p>Melodii personalizate create de Domnul Dirijor pentru orice ocazie. Cadoul perfect, în doar câteva minute.</p>
+                    <p class="license-note">Melodiile sunt create cu ajutorul tehnologiei avansate de compoziție muzicală. Licențiate pentru uz personal și evenimente private.</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="termeni.html">Termeni și condiții</a></li>
+                        <li><a href="confidentialitate.html">Confidențialitate</a></li>
+                        <li><a href="cookies.html">Politica de cookies</a></li>
+                        <li><a href="retur.html">Politica de retur</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                        <!-- SOCIAL_LINKS_HERE -->
+                        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                        <li><a href="#" aria-label="TikTok">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024-2026 RefrenulMeu.ro — Toate drepturile rezervate.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

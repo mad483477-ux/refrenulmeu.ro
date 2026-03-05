@@ -1,0 +1,3607 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RefrenulMeu.ro — Melodii Personalizate de Domnul Dirijor</title>
+    <meta name="description" content="Creează melodii personalizate pentru orice ocazie. Spune-i povestea ta, iar Domnul Dirijor compune o melodie unică în doar câteva minute. De la 39.99 lei.">
+    <meta property="og:title" content="RefrenulMeu.ro — Melodii Personalizate de Domnul Dirijor">
+    <meta property="og:description" content="Melodia perfectă pentru orice ocazie, compusă instant de Domnul Dirijor. Pop, Latino, Hip-Hop, Trap, Manele, Disco, House, Chill.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://refrenulmeu.ro">
+    <meta property="og:locale" content="ro_RO">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" defer></script>
+    <style>
+        /* ========== CSS RESET & VARIABLES ========== */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-alt: #1a1a1a;
+            --border-subtle: #2a2a2a;
+            --text-primary: #fafafa;
+            --text-secondary: #a0a0a0;
+            --accent: #7C3AED;
+            --accent-hover: #6D28D9;
+            --gold: #D4A843;
+            --gold-hover: #c49a3a;
+            --success: #22C55E;
+            --error: #EF4444;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== FADE-IN ANIMATION ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== HEADER / NAV ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 var(--border-subtle);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--text-primary) !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 50%, rgba(212, 168, 67, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            gap: 8px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #0a0a0a;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-price {
+            margin-top: 24px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-price strong {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ========== TRUST BAR ========== */
+        .trust-bar {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .trust-bar .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .trust-item .icon {
+            font-size: 1.3rem;
+        }
+
+        .trust-item strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ========== SECTION SHARED STYLES ========== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== HOW IT WORKS ========== */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* ========== MUSICAL STYLES ========== */
+        .styles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .style-card {
+            width: 160px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .style-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15);
+        }
+
+        .style-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .style-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .style-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Style-specific gradients */
+        .style-pop .style-icon { background: linear-gradient(135deg, #FF6B9D, #C44569); }
+        .style-latino .style-icon { background: linear-gradient(135deg, #F39C12, #E74C3C); }
+        .style-hiphop .style-icon { background: linear-gradient(135deg, #6C5CE7, #A29BFE); }
+        .style-trap .style-icon { background: linear-gradient(135deg, #2D3436, #636E72); }
+        .style-manele .style-icon { background: linear-gradient(135deg, #D4A843, #B8860B); }
+        .style-disco .style-icon { background: linear-gradient(135deg, #E056A0, #F0E130); }
+        .style-house .style-icon { background: linear-gradient(135deg, #00B894, #00CEC9); }
+        .style-chill .style-icon { background: linear-gradient(135deg, #4ECDC4, #556270); }
+
+        /* ========== PRICING SECTION ========== */
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features .check {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .pricing-addon {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* ========== ORDER FORM ========== */
+        .order-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(124, 58, 237, 0.03) 50%, var(--bg-primary) 100%);
+        }
+
+        .order-form-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .form-group label .optional {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-input.valid,
+        .form-textarea.valid {
+            border-color: var(--success);
+        }
+
+        .form-input.invalid,
+        .form-textarea.invalid {
+            border-color: var(--error);
+        }
+
+        .form-error {
+            font-size: 0.8rem;
+            color: var(--error);
+            margin-top: 6px;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23a0a0a0'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            cursor: pointer;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Custom occasion input */
+        .custom-occasion-wrapper {
+            margin-top: 12px;
+            display: none;
+        }
+
+        .custom-occasion-wrapper.show {
+            display: block;
+        }
+
+        /* Pill selectors for style & tone */
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill-option {
+            position: relative;
+        }
+
+        .pill-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pill-option label {
+            display: inline-block;
+            padding: 10px 18px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .pill-option input:checked + label {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .pill-option label:hover {
+            border-color: var(--accent);
+        }
+
+        /* Checkbox addon */
+        .addon-check {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .addon-check:hover {
+            border-color: var(--accent);
+        }
+
+        .addon-check input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .addon-check .addon-info {
+            flex: 1;
+        }
+
+        .addon-check .addon-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .addon-check .addon-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .addon-check .addon-price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* Dedication section (all styles) */
+        .dedication-section {
+            margin-top: 24px;
+            padding: 24px;
+            background: rgba(212, 168, 67, 0.05);
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 12px;
+        }
+
+        .dedication-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .dedication-section .dedication-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .dedication-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .dedication-row .form-select {
+            max-width: 160px;
+        }
+
+        .dedication-result {
+            flex: 1;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .dedication-remove {
+            background: none;
+            border: none;
+            color: var(--error);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .dedication-remove:hover {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .add-dedication-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            background: transparent;
+            border: 1px dashed var(--gold);
+            border-radius: 8px;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-dedication-btn:hover {
+            background: rgba(212, 168, 67, 0.1);
+        }
+
+        /* Price summary */
+        .price-summary {
+            margin-top: 32px;
+            padding: 24px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+        }
+
+        .price-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .price-line.total {
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 8px;
+            padding-top: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .price-line.total .price-value {
+            color: var(--gold);
+            font-size: 1.4rem;
+        }
+
+        .price-value {
+            font-weight: 600;
+        }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 24px;
+            padding: 16px;
+            font-size: 1.1rem;
+            background: var(--gold);
+            color: #0a0a0a;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 168, 67, 0.3);
+        }
+
+        /* ========== TESTIMONIALS CAROUSEL ========== */
+        .testimonials-carousel { position: relative; overflow: hidden; padding: 0 0 48px; }
+        .carousel-track { display: flex; gap: 24px; transition: transform 0.5s ease; will-change: transform; }
+        .carousel-track .testimonial-card {
+            flex: 0 0 calc((100% - 48px) / 3); background: var(--bg-card); border: 1px solid var(--border-subtle);
+            border-radius: 12px; padding: 28px; min-width: 0; box-sizing: border-box;
+        }
+        .testimonial-stars { color: var(--gold); font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+        .testimonial-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+        .testimonial-author { font-size: 0.9rem; font-weight: 600; }
+        .testimonial-location { font-size: 0.8rem; color: var(--text-secondary); }
+        .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 24px; }
+        .carousel-btn {
+            width: 40px; height: 40px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border-subtle);
+            color: var(--text-primary); font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif;
+        }
+        .carousel-btn:hover { border-color: var(--accent); background: rgba(124, 58, 237, 0.1); }
+        .carousel-dots { display: flex; gap: 8px; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-subtle); cursor: pointer; transition: all 0.3s ease; border: none; padding: 0; }
+        .carousel-dot.active { background: var(--accent); transform: scale(1.3); }
+
+        /* ========== FAQ ========== */
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            gap: 16px;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* ========== SCROLL PROGRESS BAR ========== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            z-index: 9999;
+            transform-origin: left;
+            transform: scaleX(0);
+            will-change: transform;
+        }
+
+        /* ========== ANIMATED HERO GRADIENT ========== */
+        .hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #0a0a0a 50%, #0d1a0a 75%, #0a0a0a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ========== FLOATING MUSIC NOTES ========== */
+        .floating-notes {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-notes .note {
+            position: absolute;
+            bottom: -20px;
+            color: rgba(124, 58, 237, 0.12);
+            animation: floatUp linear infinite;
+        }
+
+        .floating-notes .note:nth-child(1) { left: 8%; animation-duration: 12s; animation-delay: 0s; font-size: 1.2rem; }
+        .floating-notes .note:nth-child(2) { left: 22%; animation-duration: 9s; animation-delay: 2s; font-size: 1.8rem; }
+        .floating-notes .note:nth-child(3) { left: 40%; animation-duration: 14s; animation-delay: 4s; font-size: 1rem; }
+        .floating-notes .note:nth-child(4) { left: 58%; animation-duration: 10s; animation-delay: 1s; font-size: 2rem; }
+        .floating-notes .note:nth-child(5) { left: 75%; animation-duration: 11s; animation-delay: 3s; font-size: 1.4rem; }
+        .floating-notes .note:nth-child(6) { left: 32%; animation-duration: 13s; animation-delay: 5s; font-size: 1.6rem; }
+        .floating-notes .note:nth-child(7) { left: 88%; animation-duration: 15s; animation-delay: 2.5s; font-size: 1.1rem; }
+        .floating-notes .note:nth-child(8) { left: 50%; animation-duration: 8s; animation-delay: 7s; font-size: 1.3rem; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg) scale(0.5); opacity: 0; }
+        }
+
+        /* ========== STAGGER ANIMATION ========== */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== COUNTER ANIMATION ========== */
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ========== BUTTON HOVER GLOW ========== */
+        .btn-gold {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .btn-gold::before {
+            pointer-events: none;
+        }
+
+        .btn-gold:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-submit {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+            pointer-events: none;
+        }
+
+        .btn-submit:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        /* ========== EQUALIZER BARS ========== */
+        .equalizer {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 32px;
+            margin: 24px auto 0;
+            width: fit-content;
+        }
+
+        .equalizer .bar {
+            width: 4px;
+            background: linear-gradient(to top, var(--accent), var(--gold));
+            border-radius: 2px;
+            animation: equalize 1.2s ease-in-out infinite;
+        }
+
+        .equalizer .bar:nth-child(1) { animation-delay: 0s; height: 60%; }
+        .equalizer .bar:nth-child(2) { animation-delay: 0.2s; height: 80%; }
+        .equalizer .bar:nth-child(3) { animation-delay: 0.1s; height: 40%; }
+        .equalizer .bar:nth-child(4) { animation-delay: 0.3s; height: 90%; }
+        .equalizer .bar:nth-child(5) { animation-delay: 0.15s; height: 50%; }
+        .equalizer .bar:nth-child(6) { animation-delay: 0.25s; height: 70%; }
+        .equalizer .bar:nth-child(7) { animation-delay: 0.05s; height: 55%; }
+
+        @keyframes equalize {
+            0%, 100% { transform: scaleY(0.3); }
+            50% { transform: scaleY(1); }
+        }
+
+        /* ========== PRICE FLIP ANIMATION ========== */
+        .price-flip {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .price-flip.updating {
+            animation: priceFlip 0.4s ease;
+        }
+
+        @keyframes priceFlip {
+            0% { transform: translateY(0); opacity: 1; }
+            40% { transform: translateY(-12px); opacity: 0; }
+            60% { transform: translateY(12px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ========== CARD TILT/SHINE ========== */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .tilt-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.03) 45%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.03) 55%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            pointer-events: none;
+            border-radius: 12px;
+        }
+
+        .tilt-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* ========== CURSOR GLOW ========== */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+        }
+
+        /* ========== FORM FOCUS GLOW ========== */
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15), 0 0 20px rgba(124, 58, 237, 0.08);
+        }
+
+        .form-input.valid:focus,
+        .form-textarea.valid:focus {
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+        }
+
+        .form-input.invalid:focus,
+        .form-textarea.invalid:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+        }
+
+        /* ========== PATH SELECTOR ========== */
+        .path-selector { text-align: center; }
+        .path-selector h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 24px; }
+        .path-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .path-card {
+            background: var(--bg-primary); border: 2px solid var(--border-subtle); border-radius: 12px;
+            padding: 32px 24px; cursor: pointer; transition: all 0.3s ease; text-align: center;
+        }
+        .path-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .path-card.selected { border-color: var(--accent); background: rgba(124, 58, 237, 0.05); }
+        .path-emoji { font-size: 2.5rem; display: block; margin-bottom: 16px; }
+        .path-card h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .path-card > p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+
+        /* ========== FORM STEPPER ========== */
+        .form-stepper { margin-bottom: 32px; }
+        .step-indicator { text-align: center; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+        .step-indicator .step-current { color: var(--accent); font-weight: 700; font-size: 1.1rem; }
+        .step-progress-bar { height: 4px; background: var(--border-subtle); border-radius: 4px; overflow: hidden; }
+        .step-progress-fill {
+            height: 100%; background: linear-gradient(90deg, var(--accent), var(--gold));
+            border-radius: 4px; transition: width 0.4s ease; width: 14.28%;
+        }
+
+        /* ========== FORM STEPS ========== */
+        .multi-step-form { position: relative; }
+        .form-step { display: none; }
+        .form-step.active { display: block; animation: stepFadeIn 0.3s ease; }
+        @keyframes stepFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .step-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; text-align: center; }
+        .step-desc { font-size: 0.95rem; color: var(--text-secondary); text-align: center; margin-bottom: 24px; }
+
+        /* ========== SELECTABLE CARDS ========== */
+        .vibe-grid, .occasion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+        .selectable-card {
+            background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 20px 12px; text-align: center; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;
+        }
+        .selectable-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .selectable-card.selected { border-color: var(--accent); background: rgba(124, 58, 237, 0.08); box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2); }
+        .card-emoji { font-size: 2rem; display: block; margin-bottom: 8px; }
+        .card-label { font-weight: 500; display: block; }
+
+        /* ========== STYLE SELECTOR (FORM) ========== */
+        .style-selector-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+        .style-select-card {
+            background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 16px 8px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative;
+        }
+        .style-select-card:hover { border-color: var(--accent); }
+        .style-select-card.selected { border-color: var(--accent); background: rgba(124, 58, 237, 0.08); }
+        .style-select-card .style-emoji { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+        .style-select-card .style-name { font-size: 0.85rem; font-weight: 600; }
+        .popular-badge-style {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: #0a0a0a; font-size: 0.6rem; font-weight: 700;
+            padding: 2px 8px; border-radius: 50px; white-space: nowrap; text-transform: uppercase;
+        }
+
+        /* ========== CHIP / PILL SELECTOR ========== */
+        .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip {
+            padding: 8px 16px; background: var(--bg-primary); border: 1px solid var(--border-subtle);
+            border-radius: 50px; font-size: 0.85rem; font-weight: 500; cursor: pointer;
+            transition: all 0.3s ease; font-family: 'Inter', sans-serif;
+        }
+        .chip:hover { border-color: var(--accent); }
+        .chip.selected { background: var(--accent); border-color: var(--accent); color: white; }
+        .lang-selector { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        /* ========== SUBGENRE AREA ========== */
+        .subgenre-area { margin-top: 16px; margin-bottom: 24px; }
+        .subgenre-label { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
+        .subgenre-hint { font-size: 0.8rem; color: var(--text-secondary); margin-top: 10px; font-style: italic; }
+        .recommendations-text { color: var(--gold); font-weight: 500; }
+
+        /* ========== PACKAGE TOGGLE ========== */
+        .package-toggle {
+            display: flex; background: var(--bg-primary); border: 1px solid var(--border-subtle);
+            border-radius: 50px; padding: 4px; margin-bottom: 24px;
+        }
+        .toggle-option {
+            flex: 1; padding: 10px 16px; background: none; border: none; border-radius: 50px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-secondary); cursor: pointer; transition: all 0.3s ease;
+        }
+        .toggle-option.active { background: var(--accent); color: white; }
+
+        /* ========== PACKAGES GRID ========== */
+        .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .package-card {
+            background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative;
+        }
+        .package-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .package-card.selected { border-color: var(--accent); background: rgba(124, 58, 237, 0.05); }
+        .package-card.popular { border-color: var(--gold); }
+        .package-card .popular-badge {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: #0a0a0a; font-size: 0.65rem; font-weight: 700;
+            padding: 3px 10px; border-radius: 50px; white-space: nowrap;
+        }
+        .package-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .package-price { font-size: 1.4rem; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+        .package-card ul { list-style: none; text-align: left; font-size: 0.8rem; color: var(--text-secondary); }
+        .package-card ul li { padding: 3px 0; display: flex; align-items: center; gap: 6px; }
+        .package-card ul li::before { content: '✓'; color: var(--success); font-weight: 700; }
+
+        /* ========== ATINGERI PERSONALE ========== */
+        .atingeri-intro { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px; }
+        .atingeri-list { display: flex; flex-direction: column; gap: 10px; }
+        .atingere-item {
+            display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+            background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 8px;
+            cursor: pointer; transition: border-color 0.3s ease;
+        }
+        .atingere-item:hover { border-color: var(--accent); }
+        .atingere-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+        .atingere-name { flex: 1; font-size: 0.9rem; font-weight: 500; }
+        .atingere-price { color: var(--gold); font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+        .atingere-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+        .atingere-desc { font-size: 0.78rem; color: var(--text-secondary); font-style: italic; opacity: 0.7; }
+
+        /* ========== MANELE DEDICAȚII ========== */
+        .manele-dedicatii { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle); }
+        .dedicatie-toggle-card {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-card-alt); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 20px 24px; margin-bottom: 12px;
+        }
+        .dedicatie-toggle-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--gold); }
+        .dedicatie-toggle-card p { font-size: 0.82rem; color: var(--text-secondary); margin: 0; }
+        .toggle-btn {
+            background: var(--bg-primary); color: var(--text-secondary); border: 2px solid var(--border-subtle);
+            border-radius: 50px; padding: 10px 24px; font-family: 'Inter', sans-serif; font-weight: 700;
+            font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0;
+            letter-spacing: 1px;
+        }
+        .toggle-btn:hover { border-color: var(--accent); color: var(--text-primary); transform: scale(1.05); }
+        .toggle-btn.active { background: var(--success); color: white; border-color: var(--success); transform: scale(1.05); }
+        /* Money float animation for dedicatii */
+        @keyframes moneyFloat {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            50% { opacity: 0.8; transform: translateY(-30px) scale(1.2) rotate(15deg); }
+            100% { opacity: 0; transform: translateY(-60px) scale(0.8) rotate(-10deg); }
+        }
+        .money-particle {
+            position: fixed; pointer-events: none; font-size: 1.5rem; z-index: 1000;
+            animation: moneyFloat 1.2s ease-out forwards;
+        }
+        .dedicatie-content, .arunci-content { padding: 12px 0; }
+
+        /* ========== STEP NAVIGATION ========== */
+        .step-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);
+        }
+        .btn-accent { background: var(--accent); color: white; }
+        .btn-accent:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+        /* ========== DIACRITICS NOTE ========== */
+        .diacritics-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; font-style: italic; opacity: 0.8; }
+
+        /* ========== LICENSE NOTE ========== */
+        .license-note { font-size: 0.78rem; color: var(--text-secondary); margin-top: 12px; opacity: 0.6; line-height: 1.5; }
+
+        /* ========== PRICING TIERS (landing) ========== */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .pricing-tier {
+            background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 28px 20px; text-align: center; position: relative; transition: all 0.3s ease;
+        }
+        .pricing-tier:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .pricing-tier.highlighted { border-color: var(--gold); }
+        .pricing-tier.highlighted .popular-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: #0a0a0a; font-size: 0.7rem; font-weight: 700;
+            padding: 4px 14px; border-radius: 50px;
+        }
+        .pricing-tier h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+        .pricing-tier .price { font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+        .pricing-tier .price-label { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .pricing-tier .pricing-features { list-style: none; text-align: left; margin-bottom: 24px; }
+        .pricing-tier .pricing-features li {
+            padding: 6px 0; font-size: 0.85rem; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .pricing-tier .pricing-features li .check { color: var(--success); font-weight: 700; }
+
+        /* ========== DIRIJORUL MASCOT ========== */
+        .dirijorul {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .dirijorul:hover {
+            transform: scale(1.05);
+        }
+
+        .dirijorul-container {
+            position: relative;
+            width: 80px;
+            height: 100px;
+        }
+
+        /* Conductor body - SVG based */
+        .dirijorul svg {
+            width: 80px;
+            height: 100px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Baton wave animation */
+        .dirijorul .baton {
+            transform-origin: 85% 85%;
+            transition: transform 0.2s ease;
+        }
+
+        .dirijorul.conducting .baton {
+            animation: waveBaton 0.8s ease-in-out;
+        }
+
+        @keyframes waveBaton {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(-25deg); }
+            30% { transform: rotate(15deg); }
+            45% { transform: rotate(-20deg); }
+            60% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* Musical notes that appear when conducting */
+        .dirijorul-notes {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100px;
+            height: 60px;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .dirijorul.conducting .dirijorul-notes {
+            animation: showNotes 1.2s ease-out forwards;
+        }
+
+        .dirijorul-notes span {
+            position: absolute;
+            font-size: 16px;
+            opacity: 0;
+            color: var(--gold);
+        }
+
+        .dirijorul.conducting .dirijorul-notes span:nth-child(1) {
+            animation: noteFloat 1s 0.1s ease-out forwards;
+            left: 0;
+            top: 20px;
+        }
+        .dirijorul.conducting .dirijorul-notes span:nth-child(2) {
+            animation: noteFloat 1s 0.3s ease-out forwards;
+            left: 30px;
+            top: 10px;
+        }
+        .dirijorul.conducting .dirijorul-notes span:nth-child(3) {
+            animation: noteFloat 1s 0.5s ease-out forwards;
+            left: 60px;
+            top: 25px;
+        }
+
+        @keyframes showNotes {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes noteFloat {
+            0% { opacity: 0; transform: translateY(0) scale(0.5); }
+            30% { opacity: 1; transform: translateY(-15px) scale(1); }
+            100% { opacity: 0; transform: translateY(-40px) scale(0.6); }
+        }
+
+        /* Speech bubble tooltip */
+        .dirijorul-bubble {
+            position: absolute;
+            bottom: 105px;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .dirijorul-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 30px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            transform: rotate(45deg);
+        }
+
+        .dirijorul.show-bubble .dirijorul-bubble {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Idle breathing animation */
+        .dirijorul .conductor-body {
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .dirijorul {
+                bottom: 12px;
+                right: 12px;
+            }
+            .dirijorul-container {
+                width: 60px;
+                height: 75px;
+            }
+            .dirijorul svg {
+                width: 60px;
+                height: 75px;
+            }
+            .dirijorul-bubble {
+                font-size: 0.7rem;
+                padding: 8px 10px;
+                right: -5px;
+                bottom: 80px;
+            }
+            .dirijor-chat-panel { right: 12px; bottom: 95px; width: calc(100vw - 24px); max-width: 320px; }
+        }
+
+        /* ========== DIRIJOR CHAT PANEL ========== */
+        .dirijor-chat-panel {
+            position: fixed; bottom: 130px; right: 20px; width: 320px;
+            background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); z-index: 998;
+            opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease; overflow: hidden;
+        }
+        .dirijor-chat-panel.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .chat-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); background: rgba(124, 58, 237, 0.08);
+        }
+        .chat-title { font-weight: 600; font-size: 0.95rem; color: var(--text-primary); }
+        .chat-close {
+            background: none; border: none; color: var(--text-secondary); font-size: 1.4rem;
+            cursor: pointer; padding: 0 4px; transition: color 0.3s ease; font-family: 'Inter', sans-serif;
+        }
+        .chat-close:hover { color: var(--text-primary); }
+        .chat-body { padding: 20px 16px; }
+        .chat-message { display: flex; gap: 12px; margin-bottom: 20px; }
+        .chat-avatar {
+            width: 36px; height: 36px; border-radius: 50%; background: rgba(124, 58, 237, 0.15);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem;
+        }
+        .chat-bubble {
+            background: var(--bg-card-alt); border: 1px solid var(--border-subtle);
+            border-radius: 12px 12px 12px 4px; padding: 12px 14px;
+            font-size: 0.88rem; line-height: 1.5; color: var(--text-primary);
+        }
+        .chat-actions { display: flex; flex-direction: column; gap: 10px; }
+        .chat-action-btn {
+            width: 100%; padding: 12px 16px; background: var(--bg-primary); border: 1px solid var(--border-subtle);
+            border-radius: 10px; color: var(--text-primary); font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; text-align: center;
+        }
+        .chat-action-btn:hover { border-color: var(--accent); background: rgba(124, 58, 237, 0.08); }
+        .chat-action-btn:first-child { border-color: var(--accent); }
+
+        /* ========== REDUCED MOTION ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .floating-notes,
+            .cursor-glow,
+            .equalizer {
+                display: none !important;
+            }
+
+            .dirijorul .conductor-body {
+                animation: none !important;
+            }
+
+            .hero {
+                animation: none !important;
+            }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .style-card {
+                width: 145px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .carousel-track .testimonial-card { flex: 0 0 calc((100% - 24px) / 2); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                z-index: 999;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .style-card {
+                width: calc(50% - 12px);
+            }
+
+            .carousel-track .testimonial-card { flex: 0 0 100%; }
+
+            .order-form-wrapper {
+                padding: 24px;
+            }
+
+            .trust-bar .container {
+                gap: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-card {
+                padding: 28px;
+            }
+
+            .dedication-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .dedication-row .form-select {
+                max-width: 100%;
+            }
+
+            .path-options { grid-template-columns: 1fr; }
+            .vibe-grid, .occasion-grid { grid-template-columns: repeat(2, 1fr); }
+            .style-selector-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: 1fr 1fr; }
+            .dedicatie-toggle-card { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .pill-group {
+                gap: 8px;
+            }
+
+            .pill-option label {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+
+            .style-card {
+                width: calc(50% - 10px);
+            }
+
+            .packages-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .style-selector-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="/" class="logo" aria-label="RefrenulMeu.ro - Pagina principală">RefrenulMeu<span>.ro</span></a>
+            <nav>
+                <ul class="nav-links" role="navigation" aria-label="Navigare principală">
+                    <li><a href="#cum-functioneaza">Cum funcționează</a></li>
+                    <li><a href="#stiluri">Stiluri</a></li>
+                    <li><a href="#preturi">Prețuri</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#comanda" class="nav-cta">Comandă acum</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Deschide meniul" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO ========== -->
+        <section class="hero" aria-label="Secțiunea principală">
+            <!-- Floating music notes -->
+            <div class="floating-notes" aria-hidden="true">
+                <span class="note">&#9835;</span>
+                <span class="note">&#9834;</span>
+                <span class="note">&#9833;</span>
+                <span class="note">&#9839;</span>
+                <span class="note">&#9835;</span>
+                <span class="note">&#9834;</span>
+                <span class="note">&#9833;</span>
+                <span class="note">&#9835;</span>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">🎵 Melodii create de Domnul Dirijor</div>
+                <h1>Melodia ta personalizată,<br><em>gata în 3 minute</em></h1>
+                <p class="hero-subtitle">Spune-i povestea ta, iar Domnul Dirijor va compune o melodie unică, special pentru tine. În doar câteva minute.</p>
+                <div class="hero-actions">
+                    <a href="#comanda" class="btn btn-gold">Creează melodia ta</a>
+                    <a href="#cum-functioneaza" class="btn btn-outline">Află cum funcționează</a>
+                </div>
+                <p class="hero-price">De la <strong>39.99 lei</strong> — primești melodia instant</p>
+                <!-- Equalizer bars -->
+                <div class="equalizer" aria-hidden="true">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TRUST BAR ========== -->
+        <section class="trust-bar" aria-label="Statistici de încredere">
+            <div class="container stagger-container">
+                <div class="trust-item stagger-item">
+                    <span class="icon">🎵</span>
+                    <span><strong class="stat-number" data-target="500" data-suffix="+">0</strong> melodii create</span>
+                </div>
+                <div class="trust-item stagger-item">
+                    <span class="icon">⚡</span>
+                    <span>Gata în <strong class="stat-number" data-target="3" data-suffix="">0</strong> minute</span>
+                </div>
+                <div class="trust-item stagger-item">
+                    <span class="icon">⭐</span>
+                    <span><strong class="stat-number" data-target="4.9" data-suffix="/5" data-decimal="true">0</strong> rating</span>
+                </div>
+                <div class="trust-item stagger-item">
+                    <span class="icon">🔒</span>
+                    <span>Plată <strong>securizată</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CUM FUNCȚIONEAZĂ ========== -->
+        <section class="section" id="cum-functioneaza" aria-label="Cum funcționează">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Cum funcționează</h2>
+                    <p>Trei pași simpli până la melodia ta personalizată</p>
+                </div>
+                <div class="steps-grid stagger-container">
+                    <div class="step-card tilt-card stagger-item">
+                        <div class="step-number">1</div>
+                        <h3>Completezi formularul</h3>
+                        <p>Spune-ne pentru cine e melodia, ce ocazie sărbătorești și alege stilul muzical preferat.</p>
+                    </div>
+                    <div class="step-card tilt-card stagger-item">
+                        <div class="step-number">2</div>
+                        <h3>Domnul Dirijor compune</h3>
+                        <p>Domnul Dirijor adună orchestra și creează o melodie originală bazată pe emoțiile tale.</p>
+                    </div>
+                    <div class="step-card tilt-card stagger-item">
+                        <div class="step-number">3</div>
+                        <h3>Primești și asculți</h3>
+                        <p>În câteva minute, melodia ta e gata. O poți asculta, descărca și trimite cadou.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== STILURI MUZICALE ========== -->
+        <section class="section" id="stiluri" aria-label="Stiluri muzicale">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Alege stilul tău</h2>
+                    <p>8 stiluri muzicale pentru orice gust și orice ocazie</p>
+                </div>
+                <div class="styles-grid stagger-container">
+                    <div class="style-card style-pop tilt-card stagger-item">
+                        <div class="style-icon">🎤</div>
+                        <h3>Pop</h3>
+                        <p>Melodii catchy, ușor de fredonat</p>
+                    </div>
+                    <div class="style-card style-latino tilt-card stagger-item">
+                        <div class="style-icon">💃</div>
+                        <h3>Latino</h3>
+                        <p>Ritmuri dansante, energie pură</p>
+                    </div>
+                    <div class="style-card style-hiphop tilt-card stagger-item">
+                        <div class="style-icon">🎙️</div>
+                        <h3>Hip-Hop</h3>
+                        <p>Flow, ritmuri urban, vibe fresh</p>
+                    </div>
+                    <div class="style-card style-trap tilt-card stagger-item">
+                        <div class="style-icon">🔥</div>
+                        <h3>Trap</h3>
+                        <p>Beaturi puternice, atitudine</p>
+                    </div>
+                    <div class="style-card style-manele tilt-card stagger-item">
+                        <div class="style-icon">🎻</div>
+                        <h3>Manele</h3>
+                        <p>Suflet, petrecere și dedicații</p>
+                    </div>
+                    <div class="style-card style-disco tilt-card stagger-item">
+                        <div class="style-icon">🪩</div>
+                        <h3>Disco</h3>
+                        <p>Retro vibes, dans și nostalgie</p>
+                    </div>
+                    <div class="style-card style-house tilt-card stagger-item">
+                        <div class="style-icon">🎧</div>
+                        <h3>House</h3>
+                        <p>Groovy, electronic, de club</p>
+                    </div>
+                    <div class="style-card style-chill tilt-card stagger-item">
+                        <div class="style-icon">🏖️</div>
+                        <h3>Chill</h3>
+                        <p>Relaxat, ambient, lo-fi vibes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PREȚURI ========== -->
+        <section class="section" id="preturi" aria-label="Prețuri">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Prețuri transparente</h2>
+                    <p>Fără costuri ascunse. Plătești ce vezi.</p>
+                </div>
+                <div class="pricing-grid stagger-container">
+                    <div class="pricing-tier tilt-card stagger-item">
+                        <h3>Simplu</h3>
+                        <div class="price">39.99 lei</div>
+                        <div class="price-label">melodie personalizată</div>
+                        <ul class="pricing-features">
+                            <li><span class="check">✓</span> Melodie unică</li>
+                            <li><span class="check">✓</span> 2 variante</li>
+                            <li><span class="check">✓</span> Download instant</li>
+                            <li><span class="check">✓</span> Gata în câteva minute</li>
+                        </ul>
+                        <a href="#comanda" class="btn btn-outline" style="width:100%">Alege</a>
+                    </div>
+                    <div class="pricing-tier highlighted tilt-card stagger-item">
+                        <div class="popular-badge">Cel mai popular</div>
+                        <h3>Special</h3>
+                        <div class="price">59.99 lei</div>
+                        <div class="price-label">tot din Simplu, plus:</div>
+                        <ul class="pricing-features">
+                            <li><span class="check">✓</span> Versuri personalizate</li>
+                            <li><span class="check">✓</span> 1 mențiune de nume</li>
+                            <li><span class="check">✓</span> Mesaj personal în melodie</li>
+                        </ul>
+                        <a href="#comanda" class="btn btn-gold" style="width:100%">Alege</a>
+                    </div>
+                    <div class="pricing-tier tilt-card stagger-item">
+                        <h3>Premium</h3>
+                        <div class="price">89.99 lei</div>
+                        <div class="price-label">tot din Special, plus:</div>
+                        <ul class="pricing-features">
+                            <li><span class="check">✓</span> Intro vorbit</li>
+                            <li><span class="check">✓</span> Outro cu dedicație</li>
+                            <li><span class="check">✓</span> Poveste extinsă</li>
+                        </ul>
+                        <a href="#comanda" class="btn btn-outline" style="width:100%">Alege</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ORDER FORM ========== -->
+        <section class="section order-section" id="comanda" aria-label="Formular de comandă">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Creează melodia ta</h2>
+                    <p>Domnul Dirijor te ghidează pas cu pas</p>
+                </div>
+                <div class="order-form-wrapper fade-in">
+                    <!-- PATH SELECTOR -->
+                    <div class="path-selector" id="pathSelector">
+                        <h3>Cum vrei să începem?</h3>
+                        <div class="path-options">
+                            <div class="path-card" data-path="guided" tabindex="0" role="button" aria-label="Calea ghidată">
+                                <span class="path-emoji">🎭</span>
+                                <h4>Ajută-mă să aleg</h4>
+                                <p>Domnul Dirijor ascultă, înțelege, apoi compune.</p>
+                            </div>
+                            <div class="path-card" data-path="direct" tabindex="0" role="button" aria-label="Calea directă">
+                                <span class="path-emoji">🎯</span>
+                                <h4>Știu ce vreau</h4>
+                                <p>Alege direct stilul și completează detaliile.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== GUIDED PATH (7 steps) ===== -->
+                    <form id="guidedForm" class="multi-step-form" style="display:none" novalidate>
+                        <div class="form-stepper">
+                            <div class="step-indicator">Pasul <span class="step-current" id="gStepCurrent">1</span> din <span class="step-total">7</span></div>
+                            <div class="step-progress-bar"><div class="step-progress-fill" id="gProgressFill"></div></div>
+                        </div>
+
+                        <!-- G Step 1: Vibe -->
+                        <div class="form-step active" data-step="1">
+                            <h3 class="step-title">Ce vibe cauți?</h3>
+                            <p class="step-desc">Alege emoția pe care vrei să o transmită melodia</p>
+                            <div class="vibe-grid" id="gVibeGrid">
+                                <div class="selectable-card" data-value="vesel-energic"><span class="card-emoji">😄</span><span class="card-label">Vesel & Energic</span></div>
+                                <div class="selectable-card" data-value="romantic-tandru"><span class="card-emoji">💕</span><span class="card-label">Romantic & Tandru</span></div>
+                                <div class="selectable-card" data-value="emotional-profund"><span class="card-emoji">🥹</span><span class="card-label">Emoțional & Profund</span></div>
+                                <div class="selectable-card" data-value="petrecere-dansant"><span class="card-emoji">🎉</span><span class="card-label">De petrecere</span></div>
+                                <div class="selectable-card" data-value="nostalgic-cald"><span class="card-emoji">🌅</span><span class="card-label">Nostalgic & Cald</span></div>
+                                <div class="selectable-card" data-value="funny-amuzant"><span class="card-emoji">😂</span><span class="card-label">Funny & Amuzant</span></div>
+                            </div>
+                            <div class="step-nav"><div></div><button type="button" class="btn btn-accent step-next" aria-label="Pasul următor">Următorul →</button></div>
+                        </div>
+
+                        <!-- G Step 2: Ocazie -->
+                        <div class="form-step" data-step="2">
+                            <h3 class="step-title">Pentru ce ocazie?</h3>
+                            <div class="occasion-grid" id="gOccasionGrid">
+                                <div class="selectable-card" data-value="zi-nastere"><span class="card-emoji">🎂</span><span class="card-label">Ziua de naștere</span></div>
+                                <div class="selectable-card" data-value="nunta"><span class="card-emoji">💒</span><span class="card-label">Nuntă</span></div>
+                                <div class="selectable-card" data-value="botez"><span class="card-emoji">👶</span><span class="card-label">Botez</span></div>
+                                <div class="selectable-card" data-value="valentines"><span class="card-emoji">❤️</span><span class="card-label">Valentine's</span></div>
+                                <div class="selectable-card" data-value="8-martie"><span class="card-emoji">🌷</span><span class="card-label">8 Martie</span></div>
+                                <div class="selectable-card" data-value="cerere-casatorie"><span class="card-emoji">💍</span><span class="card-label">Cerere în căsătorie</span></div>
+                                <div class="selectable-card" data-value="aniversare"><span class="card-emoji">🥂</span><span class="card-label">Aniversare</span></div>
+                                <div class="selectable-card" data-value="absolvire"><span class="card-emoji">🎓</span><span class="card-label">Absolvire</span></div>
+                                <div class="selectable-card" data-value="pensionare"><span class="card-emoji">🏆</span><span class="card-label">Pensionare</span></div>
+                                <div class="selectable-card" data-value="corporate"><span class="card-emoji">🏢</span><span class="card-label">Corporate</span></div>
+                                <div class="selectable-card" data-value="imn-firma"><span class="card-emoji">🏛️</span><span class="card-label">Imn de firmă</span></div>
+                                <div class="selectable-card" data-value="craciun"><span class="card-emoji">🎄</span><span class="card-label">Crăciun</span></div>
+                                <div class="selectable-card" data-value="doar-de-drag"><span class="card-emoji">💜</span><span class="card-label">Doar de drag</span></div>
+                                <div class="selectable-card" data-value="alta-ocazie"><span class="card-emoji">✨</span><span class="card-label">Altă ocazie</span></div>
+                            </div>
+                            <div id="gCustomOccasion" style="display:none" class="form-group"><input type="text" class="form-input" placeholder="Descrie ocazia ta..."></div>
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-outline step-prev" aria-label="Pasul anterior">← Înapoi</button>
+                                <button type="button" class="btn btn-accent step-next" aria-label="Pasul următor">Următorul →</button>
+                            </div>
+                        </div>
+
+                        <!-- G Step 3: Destinatar -->
+                        <div class="form-step" data-step="3">
+                            <h3 class="step-title">Pentru cine e melodia?</h3>
+                            <div class="form-group">
+                                <label for="gRecipient">Numele destinatarului</label>
+                                <input type="text" id="gRecipient" class="form-input" placeholder="ex. Andrei, Maria, bunica..." required>
+                                <div class="form-error" id="gRecipientError">Te rugăm să completezi numele</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gRelation">Relația ta cu destinatarul</label>
+                                <select id="gRelation" class="form-select">
+                                    <option value="" disabled selected>Alege relația</option>
+                                    <option value="partener">Partener / Parteneră</option>
+                                    <option value="parinte">Părinte</option>
+                                    <option value="copil">Copil</option>
+                                    <option value="prieten">Prieten / Prietenă</option>
+                                    <option value="coleg">Coleg / Colegă</option>
+                                    <option value="familie">Membru familie</option>
+                                    <option value="altcineva">Altcineva</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Limba versurilor</label>
+                                <div class="lang-selector" id="gLangSelector">
+                                    <div class="chip selected" data-value="ro">🇷🇴 Română</div>
+                                    <div class="chip" data-value="en">🇬🇧 Engleză</div>
+                                    <div class="chip" data-value="es">🇪🇸 Spaniolă</div>
+                                    <div class="chip" data-value="it">🇮🇹 Italiană</div>
+                                    <div class="chip" data-value="fr">🇫🇷 Franceză</div>
+                                </div>
+                            </div>
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-outline step-prev">← Înapoi</button>
+                                <button type="button" class="btn btn-accent step-next">Următorul →</button>
+                            </div>
+                        </div>
+
+                        <!-- G Step 4: Povestea -->
+                        <div class="form-step" data-step="4">
+                            <h3 class="step-title">Spune-i povestea ta Domnului Dirijor</h3>
+                            <p class="step-desc" id="gStoryPrompt">Cu cât ne spui mai mult, cu atât melodia va fi mai personalizată.</p>
+                            <div class="form-group">
+                                <textarea id="gStory" class="form-textarea" rows="5" placeholder="Povestește-ne ceva special despre persoana sau momentul pe care vrei să-l celebrezi..."></textarea>
+                                <div class="diacritics-note">Cu cât ne spui mai multe detalii, cu atât melodia va fi mai personalizată.</div>
+                            </div>
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-outline step-prev">← Înapoi</button>
+                                <button type="button" class="btn btn-accent step-next">Următorul →</button>
+                            </div>
+                        </div>
+
+                        <!-- G Step 5: Stil muzical -->
+                        <div class="form-step" data-step="5">
+                            <h3 class="step-title">Alege stilul muzical</h3>
+                            <p class="step-desc recommendations-text" id="gRecommendText" style="display:none"></p>
+                            <div class="style-selector-grid" id="gStyleGrid"></div>
+                            <div class="subgenre-area" id="gSubgenreArea" style="display:none">
+                                <p class="subgenre-label">Alege o nuanță <span class="optional">(opțional)</span></p>
+                                <div class="chip-group" id="gSubgenreChips"></div>
+                                <p class="subgenre-hint">Dacă nu alegi, Domnul Dirijor va selecta nuanța potrivită pe baza poveștii tale.</p>
+                            </div>
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-outline step-prev">← Înapoi</button>
+                                <button type="button" class="btn btn-accent step-next">Următorul →</button>
+                            </div>
+                        </div>
+
+                        <!-- G Step 6: Atingeri Personale + Pachete -->
+                        <div class="form-step" data-step="6">
+                            <h3 class="step-title">Fă melodia și mai specială</h3>
+                            <div class="package-toggle">
+                                <button type="button" class="toggle-option active" data-mode="packages">Alege un pachet</button>
+                                <button type="button" class="toggle-option" data-mode="custom">Personalizează singur</button>
+                            </div>
+                            <div id="gPackagesView">
+                                <div class="packages-grid" id="gPackagesGrid">
+                                    <div class="package-card" data-package="simplu"><h4>Simplu</h4><div class="package-price">39.99 lei</div><ul><li>Melodie personalizată</li><li>2 variante</li><li>Download instant</li></ul></div>
+                                    <div class="package-card popular selected" data-package="special"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div><ul><li>Versuri personalizate</li><li>1 mențiune de nume</li><li>Mesaj personal</li></ul></div>
+                                    <div class="package-card" data-package="premium"><h4>Premium</h4><div class="package-price">89.99 lei</div><ul><li>Tot din Special +</li><li>Intro vorbit + Outro</li><li>Poveste extinsă</li></ul></div>
+                                </div>
+                            </div>
+                            <div id="gCustomView" style="display:none">
+                                <p class="atingeri-intro">Alege ce vrei să adaugi la melodia ta (preț de bază: 39.99 lei):</p>
+                                <div class="atingeri-list">
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="versuri" data-price="10"><div class="atingere-info"><span class="atingere-name">Versuri personalizate</span><span class="atingere-desc">Domnul Dirijor scrie versurile special pentru povestea ta</span></div><span class="atingere-price">+10 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="mentiune" data-price="5"><div class="atingere-info"><span class="atingere-name">Mențiune de nume</span><span class="atingere-desc">Numele persoanei apare în versuri</span></div><span class="atingere-price">+5 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="mesaj" data-price="15"><div class="atingere-info"><span class="atingere-name">Mesaj personal în melodie</span><span class="atingere-desc">O frază de la tine, inclusă în melodie</span></div><span class="atingere-price">+15 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="intro" data-price="20"><div class="atingere-info"><span class="atingere-name">Intro vorbit</span><span class="atingere-desc">La început: „Această melodie este pentru tine, Maria..."</span></div><span class="atingere-price">+20 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="outro" data-price="15"><div class="atingere-info"><span class="atingere-name">Outro cu dedicație</span><span class="atingere-desc">La final: „Te iubim, mamă! La mulți ani!"</span></div><span class="atingere-price">+15 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="poveste" data-price="25"><div class="atingere-info"><span class="atingere-name">Poveste extinsă</span><span class="atingere-desc">Mai mult spațiu, versuri mai bogate</span></div><span class="atingere-price">+25 lei</span></label>
+                                    <label class="atingere-item manele-only" style="display:none"><input type="checkbox" data-atingere="strigatura" data-price="5"><div class="atingere-info"><span class="atingere-name">Strigătură personalizată</span><span class="atingere-desc">Strigătură clasică cu numele tău</span></div><span class="atingere-price">+5 lei/buc</span></label>
+                                </div>
+                            </div>
+                            <!-- Manele-only: Dedicații -->
+                            <div class="manele-dedicatii" id="gManeleDedicatii" style="display:none">
+                                <div class="dedicatie-toggle-card">
+                                    <div><h4>Vrei dedicație?</h4><p>Vrei să dedici această melodie unei persoane? Dacă da, o să apară în piesă.</p></div>
+                                    <button type="button" class="toggle-btn" id="gToggleDedicatie">NU</button>
+                                </div>
+                                <div id="gDedicatieContent" style="display:none" class="dedicatie-content">
+                                    <input type="text" class="form-input" id="gDedicatieName" placeholder="Numele persoanei dedicate...">
+                                </div>
+                                <div class="dedicatie-toggle-card">
+                                    <div><h4>Vrei să arunci cu bani?</h4><p>Alege suma pe care vrei să o arunci la lăutar.</p></div>
+                                    <button type="button" class="toggle-btn" id="gToggleArunci">NU</button>
+                                </div>
+                                <div id="gAruniciContent" style="display:none" class="arunci-content">
+                                    <div id="gAruniciList"></div>
+                                    <button type="button" class="add-dedication-btn" id="gAddArunci">+ Adaugă dedicație</button>
+                                </div>
+                            </div>
+                            <div class="step-nav">
+                                <button type="button" class="btn btn-outline step-prev">← Înapoi</button>
+                                <button type="button" class="btn btn-accent step-next">Următorul →</button>
+                            </div>
+                        </div>
+
+                        <!-- G Step 7: Email + Plată -->
+                        <div class="form-step" data-step="7">
+                            <h3 class="step-title">Finalizează comanda</h3>
+                            <div class="form-group">
+                                <label for="gEmail">Adresa ta de email</label>
+                                <input type="email" id="gEmail" class="form-input" placeholder="email@exemplu.ro" required>
+                                <div class="form-error" id="gEmailError">Te rugăm să introduci un email valid</div>
+                            </div>
+                            <div class="price-summary" id="gPriceSummary">
+                                <div class="price-line"><span>Pachet Special</span><span class="price-value" id="gPackageLine">59.99 lei</span></div>
+                                <div class="price-line" id="gDedicatiiLine" style="display:none"><span>Dedicații</span><span class="price-value" id="gDedicatiiPrice">0 lei</span></div>
+                                <div class="price-line total"><span>Total</span><span class="price-value price-flip" id="gTotalPrice">59.99 lei</span></div>
+                            </div>
+                            <!-- STRIPE_KEY_HERE -->
+                            <button type="submit" class="btn-submit" id="gSubmitBtn">Plătește 59.99 lei</button>
+                        </div>
+                    </form>
+
+                    <!-- ===== DIRECT PATH (4 steps) ===== -->
+                    <form id="directForm" class="multi-step-form" style="display:none" novalidate>
+                        <div class="form-stepper">
+                            <div class="step-indicator">Pasul <span class="step-current" id="dStepCurrent">1</span> din <span class="step-total">4</span></div>
+                            <div class="step-progress-bar"><div class="step-progress-fill" id="dProgressFill" style="width:25%"></div></div>
+                        </div>
+
+                        <!-- D Step 1: Stil + Vibe -->
+                        <div class="form-step active" data-step="1">
+                            <h3 class="step-title">Alege stilul și vibe-ul</h3>
+                            <div class="form-group"><label>Stilul muzical</label><div class="style-selector-grid" id="dStyleGrid"></div></div>
+                            <div class="subgenre-area" id="dSubgenreArea" style="display:none">
+                                <p class="subgenre-label">Alege o nuanță <span class="optional">(opțional)</span></p>
+                                <div class="chip-group" id="dSubgenreChips"></div>
+                            </div>
+                            <div class="form-group"><label>Vibe-ul melodiei</label>
+                                <div class="chip-group" id="dVibeChips">
+                                    <div class="chip" data-value="vesel-energic">😄 Vesel</div>
+                                    <div class="chip" data-value="romantic-tandru">💕 Romantic</div>
+                                    <div class="chip" data-value="emotional-profund">🥹 Emoțional</div>
+                                    <div class="chip" data-value="petrecere-dansant">🎉 Petrecere</div>
+                                    <div class="chip" data-value="nostalgic-cald">🌅 Nostalgic</div>
+                                    <div class="chip" data-value="funny-amuzant">😂 Funny</div>
+                                </div>
+                            </div>
+                            <div class="step-nav"><div></div><button type="button" class="btn btn-accent step-next">Următorul →</button></div>
+                        </div>
+
+                        <!-- D Step 2: Detalii -->
+                        <div class="form-step" data-step="2">
+                            <h3 class="step-title">Detaliile melodiei</h3>
+                            <div class="form-group"><label for="dOccasion">Ocazia</label>
+                                <select id="dOccasion" class="form-select"><option value="" disabled selected>Alege ocazia</option>
+                                    <option value="zi-nastere">Ziua de naștere</option><option value="nunta">Nuntă</option><option value="botez">Botez</option>
+                                    <option value="valentines">Valentine's / Dragobete</option><option value="8-martie">8 Martie</option>
+                                    <option value="cerere-casatorie">Cerere în căsătorie</option><option value="aniversare">Aniversare</option>
+                                    <option value="absolvire">Absolvire</option><option value="pensionare">Pensionare</option>
+                                    <option value="corporate">Corporate</option><option value="imn-firma">Imn de firmă</option>
+                                    <option value="craciun">Crăciun</option><option value="doar-de-drag">Doar de drag</option>
+                                    <option value="alta-ocazie">Altă ocazie</option>
+                                </select>
+                            </div>
+                            <div id="dCustomOccasion" class="form-group" style="display:none">
+                                <input type="text" id="dCustomOccasionInput" class="form-input" placeholder="Descrie ocazia ta...">
+                            </div>
+                            <div class="form-group"><label for="dRecipient">Numele destinatarului</label><input type="text" id="dRecipient" class="form-input" placeholder="ex. Andrei, Maria..." required><div class="form-error" id="dRecipientError">Te rugăm să completezi numele</div></div>
+                            <div class="form-group"><label for="dRelation">Relația</label>
+                                <select id="dRelation" class="form-select"><option value="" disabled selected>Alege</option><option value="partener">Partener</option><option value="parinte">Părinte</option><option value="copil">Copil</option><option value="prieten">Prieten</option><option value="coleg">Coleg</option><option value="familie">Familie</option><option value="altcineva">Altcineva</option></select>
+                            </div>
+                            <div class="form-group"><label>Limba versurilor</label>
+                                <div class="lang-selector" id="dLangSelector"><div class="chip selected" data-value="ro">🇷🇴 Română</div><div class="chip" data-value="en">🇬🇧 Engleză</div><div class="chip" data-value="es">🇪🇸 Spaniolă</div><div class="chip" data-value="it">🇮🇹 Italiană</div><div class="chip" data-value="fr">🇫🇷 Franceză</div></div>
+                            </div>
+                            <div class="form-group"><label for="dStory">Povestea ta</label><textarea id="dStory" class="form-textarea" rows="4" placeholder="Spune-ne povestea: cum s-au cunoscut? Ce moment v-a marcat? Ce ai vrea să simtă când ascultă melodia?"></textarea><div class="diacritics-note">Cu cât ne spui mai multe detalii, cu atât melodia va fi mai personalizată.</div></div>
+                            <div class="step-nav"><button type="button" class="btn btn-outline step-prev">← Înapoi</button><button type="button" class="btn btn-accent step-next">Următorul →</button></div>
+                        </div>
+
+                        <!-- D Step 3: Atingeri + Pachete -->
+                        <div class="form-step" data-step="3">
+                            <h3 class="step-title">Personalizare</h3>
+                            <div class="package-toggle">
+                                <button type="button" class="toggle-option active" data-mode="packages">Alege un pachet</button>
+                                <button type="button" class="toggle-option" data-mode="custom">Personalizează singur</button>
+                            </div>
+                            <div id="dPackagesView">
+                                <div class="packages-grid" id="dPackagesGrid">
+                                    <div class="package-card" data-package="simplu"><h4>Simplu</h4><div class="package-price">39.99 lei</div><ul><li>Melodie + 2 variante</li><li>Download instant</li></ul></div>
+                                    <div class="package-card popular selected" data-package="special"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div><ul><li>Versuri personalizate</li><li>Mențiune + Mesaj</li></ul></div>
+                                    <div class="package-card" data-package="premium"><h4>Premium</h4><div class="package-price">89.99 lei</div><ul><li>Intro + Outro</li><li>Poveste extinsă</li></ul></div>
+                                </div>
+                            </div>
+                            <div id="dCustomView" style="display:none">
+                                <p class="atingeri-intro">Preț de bază: 39.99 lei. Adaugă ce vrei:</p>
+                                <div class="atingeri-list">
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="versuri" data-price="10"><div class="atingere-info"><span class="atingere-name">Versuri personalizate</span><span class="atingere-desc">Versuri scrise special pentru povestea ta</span></div><span class="atingere-price">+10 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="mentiune" data-price="5"><div class="atingere-info"><span class="atingere-name">Mențiune de nume</span><span class="atingere-desc">Numele persoanei apare în versuri</span></div><span class="atingere-price">+5 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="mesaj" data-price="15"><div class="atingere-info"><span class="atingere-name">Mesaj personal</span><span class="atingere-desc">O frază specifică inclusă în melodie</span></div><span class="atingere-price">+15 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="intro" data-price="20"><div class="atingere-info"><span class="atingere-name">Intro vorbit</span><span class="atingere-desc">La început: „Această melodie este pentru tine..."</span></div><span class="atingere-price">+20 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="outro" data-price="15"><div class="atingere-info"><span class="atingere-name">Outro cu dedicație</span><span class="atingere-desc">La final: „Te iubim! La mulți ani!"</span></div><span class="atingere-price">+15 lei</span></label>
+                                    <label class="atingere-item"><input type="checkbox" data-atingere="poveste" data-price="25"><div class="atingere-info"><span class="atingere-name">Poveste extinsă</span><span class="atingere-desc">Mai mult spațiu, versuri mai bogate</span></div><span class="atingere-price">+25 lei</span></label>
+                                    <label class="atingere-item manele-only" style="display:none"><input type="checkbox" data-atingere="strigatura" data-price="5"><div class="atingere-info"><span class="atingere-name">Strigătură</span><span class="atingere-desc">Strigătură clasică cu numele tău</span></div><span class="atingere-price">+5 lei</span></label>
+                                </div>
+                            </div>
+                            <div class="manele-dedicatii" id="dManeleDedicatii" style="display:none">
+                                <div class="dedicatie-toggle-card"><div><h4>Vrei dedicație?</h4><p>Dedică melodia unei persoane.</p></div><button type="button" class="toggle-btn" id="dToggleDedicatie">NU</button></div>
+                                <div id="dDedicatieContent" style="display:none" class="dedicatie-content"><input type="text" class="form-input" id="dDedicatieName" placeholder="Numele persoanei..."></div>
+                                <div class="dedicatie-toggle-card"><div><h4>Vrei să arunci cu bani?</h4><p>Alege suma la lăutar.</p></div><button type="button" class="toggle-btn" id="dToggleArunci">NU</button></div>
+                                <div id="dAruniciContent" style="display:none" class="arunci-content"><div id="dAruniciList"></div><button type="button" class="add-dedication-btn" id="dAddArunci">+ Adaugă dedicație</button></div>
+                            </div>
+                            <div class="step-nav"><button type="button" class="btn btn-outline step-prev">← Înapoi</button><button type="button" class="btn btn-accent step-next">Următorul →</button></div>
+                        </div>
+
+                        <!-- D Step 4: Email + Plată -->
+                        <div class="form-step" data-step="4">
+                            <h3 class="step-title">Finalizează comanda</h3>
+                            <div class="form-group"><label for="dEmail">Adresa ta de email</label><input type="email" id="dEmail" class="form-input" placeholder="email@exemplu.ro" required><div class="form-error" id="dEmailError">Te rugăm să introduci un email valid</div></div>
+                            <div class="price-summary" id="dPriceSummary">
+                                <div class="price-line"><span>Pachet Special</span><span class="price-value" id="dPackageLine">59.99 lei</span></div>
+                                <div class="price-line" id="dDedicatiiLine" style="display:none"><span>Dedicații</span><span class="price-value" id="dDedicatiiPrice">0 lei</span></div>
+                                <div class="price-line total"><span>Total</span><span class="price-value price-flip" id="dTotalPrice">59.99 lei</span></div>
+                            </div>
+                            <!-- STRIPE_KEY_HERE -->
+                            <button type="submit" class="btn-submit" id="dSubmitBtn">Plătește 59.99 lei</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TESTIMONIALE ========== -->
+        <section class="section" id="testimoniale" aria-label="Testimoniale">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Ce spun clienții noștri</h2>
+                    <p>Sute de oameni au oferit cadoul perfect</p>
+                </div>
+                <div class="testimonials-carousel" id="testimonialsCarousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Am comandat o melodie de ziua soțului meu și a fost în lacrimi. N-am mai văzut un cadou să aibă efectul ăsta. Pur și simplu perfect."</p><div class="testimonial-author">Elena</div><div class="testimonial-location">București</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Am ales stilul Manele cu dedicații pentru nuntă. Nașii au fost în extaz! Toată lumea a întrebat de unde am luat melodia. Super rapid, super calitate."</p><div class="testimonial-author">Andrei</div><div class="testimonial-location">Cluj-Napoca</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Cel mai tare cadou de majorat. Fiica mea a ascultat melodia de 20 de ori și a ieșit exact cum mi-am dorit."</p><div class="testimonial-author">Gabriela</div><div class="testimonial-location">Timișoara</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Am făcut botezul fiului nostru și am vrut ceva special. Melodia Latino a fost hit-ul petrecerii, toți invitații au dansat!"</p><div class="testimonial-author">Mihai</div><div class="testimonial-location">Iași</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I-am cerut-o în căsătorie cu melodia asta pe fundal. Când a auzit numele ei în versuri, a început să plângă de fericire."</p><div class="testimonial-author">Diana</div><div class="testimonial-location">Constanța</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Am făcut o melodie Trap pentru absolvire. Colegii mei au înnebunit! A fost cel mai original cadou din toată promoția."</p><div class="testimonial-author">Alexandru</div><div class="testimonial-location">Brașov</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"5 ani de relație și nu știam ce cadou să-i fac. Melodia a spus tot ce simțeam și nu reușeam să exprim în cuvinte."</p><div class="testimonial-author">Raluca</div><div class="testimonial-location">Craiova</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Am comandat un imn pentru echipa noastră de la firmă. Colegii au rămas mască! Acum îl punem la fiecare ședință."</p><div class="testimonial-author">Ștefan</div><div class="testimonial-location">Sibiu</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"De 8 Martie i-am făcut mamei o melodie Chill. A ascultat-o în fiecare seară de atunci. Cel mai frumos cadou posibil."</p><div class="testimonial-author">Ioana</div><div class="testimonial-location">Oradea</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Nuntă cu manele personalizate! Formația a pus melodia și toată sala a cântat. A meritat fiecare leu!"</p><div class="testimonial-author">Cosmin</div><div class="testimonial-location">Ploiești</div></div>
+                        <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Am vrut o melodie Disco pentru ziua bunicii. Când și-a auzit numele, s-a emoționat atât de tare. Mulțumim, Domnul Dirijor!"</p><div class="testimonial-author">Maria</div><div class="testimonial-location">Galați</div></div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-prev" aria-label="Testimonial anterior">&#8592;</button>
+                        <div class="carousel-dots" id="carouselDots"></div>
+                        <button class="carousel-btn carousel-next" aria-label="Testimonial următor">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FAQ ========== -->
+        <section class="section" id="faq" aria-label="Întrebări frecvente">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Întrebări frecvente</h2>
+                </div>
+                <div class="faq-list fade-in">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Cât durează până primesc melodia?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Melodia ta e gata în doar câteva minute de la plasarea comenzii. Primești un link pe email unde o poți asculta și descărca imediat.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Ce primesc exact?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Primești o melodie originală, compusă special cu detaliile tale. O poți asculta online, descărca în format audio și trimite oricui ca link.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Pot alege orice stil muzical?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Da, ai 8 stiluri: Pop, Latino, Hip-Hop, Trap, Manele, Disco, House și Chill. Fiecare are subgenuri opționale pentru și mai multă personalizare.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Ce sunt Atingerile Personale?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sunt opțiuni de personalizare: mențiuni de nume, mesaje în melodie, intro vorbit, outro cu dedicație. Alegi pachetul care le include sau le adaugi individual.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Pot primi melodia în altă limbă?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Da, poți alege între română, engleză, spaniolă, italiană și franceză. Versurile vor fi generate în limba aleasă.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Cum plătesc?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Plata se face online, securizat, prin card bancar. Procesăm plățile prin Stripe, cel mai sigur procesor de plăți din lume.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Pot cere modificări dacă nu-mi place?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Fiecare melodie e unică și generată pe loc. Dacă nu ești mulțumit, consultă politica noastră de retur pentru opțiunile disponibile.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">RefrenulMeu<span>.ro</span></div>
+                    <p>Melodii personalizate create de Domnul Dirijor pentru orice ocazie. Cadoul perfect, în doar câteva minute.</p>
+                    <p class="license-note">Melodiile sunt create cu ajutorul tehnologiei avansate de compoziție muzicală. Licențiate pentru uz personal și evenimente private.</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="termeni.html">Termeni și condiții</a></li>
+                        <li><a href="confidentialitate.html">Confidențialitate</a></li>
+                        <li><a href="cookies.html">Politica de cookies</a></li>
+                        <li><a href="retur.html">Politica de retur</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@refrenulmeu.ro">contact@refrenulmeu.ro</a></li>
+                        <!-- SOCIAL_LINKS_HERE -->
+                        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                        <li><a href="#" aria-label="TikTok">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2024-2026 RefrenulMeu.ro — Toate drepturile rezervate.</span>
+                <div class="social-links">
+                    <!-- SOCIAL_LINKS_HERE -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== DIRIJORUL MASCOT ========== -->
+    <div class="dirijorul" id="dirijorul" aria-label="Domnul Dirijor — mascota RefrenulMeu.ro" role="img">
+        <div class="dirijorul-bubble" id="dirijorulBubble">Eu sunt Domnul Dirijor!</div>
+        <div class="dirijorul-container">
+            <div class="dirijorul-notes" aria-hidden="true">
+                <span>&#9835;</span>
+                <span>&#9834;</span>
+                <span>&#9833;</span>
+            </div>
+            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="conductor-body">
+                <!-- Hat -->
+                <ellipse cx="40" cy="14" rx="18" ry="6" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+                <rect x="28" y="4" width="24" height="12" rx="4" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+                <rect x="26" y="12" width="28" height="3" rx="1" fill="#2a2a2a"/>
+                <!-- Head -->
+                <circle cx="40" cy="28" r="12" fill="#F5D0A9"/>
+                <!-- Eyes -->
+                <circle cx="36" cy="26" r="1.5" fill="#1a1a1a"/>
+                <circle cx="44" cy="26" r="1.5" fill="#1a1a1a"/>
+                <!-- Smile -->
+                <path d="M36 32 Q40 36 44 32" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                <!-- Body (tuxedo) -->
+                <path d="M28 40 L26 72 H54 L52 40 Z" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+                <!-- Lapels -->
+                <path d="M36 40 L40 55 L44 40" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+                <!-- Bow tie -->
+                <path d="M37 40 L40 42 L43 40 L40 38 Z" fill="var(--accent)"/>
+                <!-- Shirt -->
+                <rect x="38" y="42" width="4" height="28" rx="1" fill="#fafafa" opacity="0.15"/>
+                <!-- Buttons -->
+                <circle cx="40" cy="48" r="1" fill="var(--gold)"/>
+                <circle cx="40" cy="54" r="1" fill="var(--gold)"/>
+                <circle cx="40" cy="60" r="1" fill="var(--gold)"/>
+                <!-- Left arm (static) -->
+                <path d="M28 44 L18 58 L20 60" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <circle cx="19" cy="59" r="3" fill="#F5D0A9"/>
+                <!-- Right arm + baton group -->
+                <g class="baton">
+                    <!-- Right arm -->
+                    <path d="M52 44 L62 36 L64 34" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    <circle cx="63" cy="35" r="3" fill="#F5D0A9"/>
+                    <!-- Baton stick -->
+                    <line x1="63" y1="35" x2="74" y2="18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="74" cy="17" r="1.5" fill="var(--gold)"/>
+                </g>
+                <!-- Legs -->
+                <rect x="32" y="70" width="7" height="18" rx="3" fill="#111"/>
+                <rect x="41" y="70" width="7" height="18" rx="3" fill="#111"/>
+                <!-- Shoes -->
+                <ellipse cx="35" cy="90" rx="6" ry="3" fill="#111" stroke="#333" stroke-width="0.5"/>
+                <ellipse cx="45" cy="90" rx="6" ry="3" fill="#111" stroke="#333" stroke-width="0.5"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Dirijor Chat Panel -->
+    <div class="dirijor-chat-panel" id="dirijorChat" aria-label="Chat cu Domnul Dirijor">
+        <div class="chat-header">
+            <span class="chat-title">🎩 Domnul Dirijor</span>
+            <button class="chat-close" id="chatClose" aria-label="Închide">×</button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message">
+                <div class="chat-avatar">🎩</div>
+                <div class="chat-bubble">Bună! Eu sunt Domnul Dirijor. Adun imediat toată orchestra și ne pregătim să-ți cântăm. Ce ți-ar plăcea să auzi?</div>
+            </div>
+            <div class="chat-actions">
+                <button class="chat-action-btn" data-action="guided">🎭 Ajută-mă să aleg</button>
+                <button class="chat-action-btn" data-action="direct">🎯 Știu ce vreau</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        (function() {
+            'use strict';
+
+            var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // ===== SCROLL PROGRESS BAR =====
+            var progressBar = document.querySelector('.scroll-progress');
+
+            // ===== STICKY HEADER + SCROLL PROGRESS =====
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+                // Update scroll progress
+                var scrollTop = window.scrollY;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (docHeight > 0) {
+                    progressBar.style.transform = 'scaleX(' + (scrollTop / docHeight) + ')';
+                }
+            }, { passive: true });
+
+            // ===== MOBILE MENU =====
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', function() {
+                const isOpen = navLinks.classList.toggle('open');
+                menuBtn.setAttribute('aria-expanded', isOpen);
+                menuBtn.textContent = isOpen ? '✕' : '☰';
+            });
+
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    menuBtn.textContent = '☰';
+                });
+            });
+
+            // ===== FADE-IN ON SCROLL =====
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                observer.observe(el);
+            });
+
+            // ===== STAGGER REVEAL ON SCROLL =====
+            var staggerObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var children = entry.target.querySelectorAll('.stagger-item');
+                        children.forEach(function(child, i) {
+                            setTimeout(function() {
+                                child.classList.add('visible');
+                            }, i * 120);
+                        });
+                        staggerObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.stagger-container').forEach(function(el) {
+                staggerObserver.observe(el);
+            });
+
+            // ===== COUNTER ANIMATION =====
+            function easeOutExpo(t) {
+                return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+            }
+
+            function animateCounter(el) {
+                var isDecimal = el.getAttribute('data-decimal') === 'true';
+                var target = parseFloat(el.getAttribute('data-target'));
+                var suffix = el.getAttribute('data-suffix') || '';
+                var duration = 2000;
+                var startTime = performance.now();
+
+                function update(currentTime) {
+                    var elapsed = currentTime - startTime;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var easedProgress = easeOutExpo(progress);
+                    var current = easedProgress * target;
+
+                    if (isDecimal) {
+                        el.textContent = current.toFixed(1) + suffix;
+                    } else {
+                        el.textContent = Math.floor(current).toLocaleString('ro-RO') + suffix;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+
+                if (!prefersReducedMotion) {
+                    requestAnimationFrame(update);
+                } else {
+                    if (isDecimal) {
+                        el.textContent = target.toFixed(1) + suffix;
+                    } else {
+                        el.textContent = Math.floor(target).toLocaleString('ro-RO') + suffix;
+                    }
+                }
+            }
+
+            var counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-number[data-target]').forEach(function(el) {
+                counterObserver.observe(el);
+            });
+
+            // ===== CARD TILT EFFECT (desktop only) =====
+            if (!prefersReducedMotion && !('ontouchstart' in window)) {
+                document.querySelectorAll('.tilt-card').forEach(function(card) {
+                    card.addEventListener('mousemove', function(e) {
+                        var rect = card.getBoundingClientRect();
+                        var x = (e.clientX - rect.left) / rect.width;
+                        var y = (e.clientY - rect.top) / rect.height;
+                        var rotateX = (0.5 - y) * 8;
+                        var rotateY = (x - 0.5) * 8;
+                        card.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+                    });
+
+                    card.addEventListener('mouseleave', function() {
+                        card.style.transform = 'rotateX(0) rotateY(0)';
+                        card.style.transition = 'transform 0.5s ease';
+                    });
+
+                    card.addEventListener('mouseenter', function() {
+                        card.style.transition = 'transform 0.1s ease';
+                    });
+                });
+            }
+
+            // ===== CURSOR GLOW (desktop only) =====
+            if (!prefersReducedMotion && !('ontouchstart' in window)) {
+                var glow = document.createElement('div');
+                glow.className = 'cursor-glow';
+                glow.setAttribute('aria-hidden', 'true');
+                document.body.appendChild(glow);
+
+                document.addEventListener('mousemove', function(e) {
+                    glow.style.left = e.clientX + 'px';
+                    glow.style.top = e.clientY + 'px';
+                });
+            }
+
+            // ===== FAQ ACCORDION =====
+            document.querySelectorAll('.faq-question').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var item = this.closest('.faq-item');
+                    var answer = item.querySelector('.faq-answer');
+                    var isActive = item.classList.contains('active');
+
+                    // Close all others
+                    document.querySelectorAll('.faq-item.active').forEach(function(active) {
+                        active.classList.remove('active');
+                        active.querySelector('.faq-answer').style.maxHeight = null;
+                        active.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // ===== TESTIMONIALS CAROUSEL =====
+            (function() {
+                var track = document.getElementById('carouselTrack');
+                var dotsContainer = document.getElementById('carouselDots');
+                if (!track || !dotsContainer) return;
+                var cards = track.querySelectorAll('.testimonial-card');
+                var totalCards = cards.length;
+                var currentIndex = 0;
+                var autoSlideInterval = null;
+                var isHovered = false;
+
+                function getVisibleCount() {
+                    if (window.innerWidth <= 768) return 1;
+                    if (window.innerWidth <= 1024) return 2;
+                    return 3;
+                }
+                function getMaxIndex() { return Math.max(0, totalCards - getVisibleCount()); }
+                function updateCarousel() {
+                    var visibleCount = getVisibleCount();
+                    var gap = 24;
+                    var containerWidth = track.parentElement.offsetWidth;
+                    var cardWidth = (containerWidth - gap * (visibleCount - 1)) / visibleCount;
+                    var offset = currentIndex * (cardWidth + gap);
+                    track.style.transform = 'translateX(-' + offset + 'px)';
+                    updateDots();
+                }
+                function createDots() {
+                    dotsContainer.innerHTML = '';
+                    var maxIdx = getMaxIndex();
+                    for (var i = 0; i <= maxIdx; i++) {
+                        var dot = document.createElement('button');
+                        dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+                        dot.dataset.index = i;
+                        dot.setAttribute('aria-label', 'Mergi la testimonialul ' + (i + 1));
+                        dot.addEventListener('click', function() {
+                            currentIndex = parseInt(this.dataset.index);
+                            updateCarousel();
+                            resetAutoSlide();
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+                function updateDots() {
+                    var dots = dotsContainer.querySelectorAll('.carousel-dot');
+                    for (var i = 0; i < dots.length; i++) {
+                        dots[i].classList.toggle('active', i === currentIndex);
+                    }
+                }
+                function nextSlide() {
+                    currentIndex = currentIndex >= getMaxIndex() ? 0 : currentIndex + 1;
+                    updateCarousel();
+                }
+                function prevSlide() {
+                    currentIndex = currentIndex <= 0 ? getMaxIndex() : currentIndex - 1;
+                    updateCarousel();
+                }
+                function startAutoSlide() {
+                    autoSlideInterval = setInterval(function() { if (!isHovered) nextSlide(); }, 4000);
+                }
+                function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
+
+                var prevBtn = document.querySelector('.carousel-prev');
+                var nextBtn = document.querySelector('.carousel-next');
+                if (prevBtn) prevBtn.addEventListener('click', function() { prevSlide(); resetAutoSlide(); });
+                if (nextBtn) nextBtn.addEventListener('click', function() { nextSlide(); resetAutoSlide(); });
+
+                var carousel = document.getElementById('testimonialsCarousel');
+                if (carousel) {
+                    carousel.addEventListener('mouseenter', function() { isHovered = true; });
+                    carousel.addEventListener('mouseleave', function() { isHovered = false; });
+                }
+                // Touch swipe
+                var touchStartX = 0;
+                track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+                track.addEventListener('touchend', function(e) {
+                    var diff = touchStartX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); resetAutoSlide(); }
+                });
+                window.addEventListener('resize', function() {
+                    createDots();
+                    currentIndex = Math.min(currentIndex, getMaxIndex());
+                    updateCarousel();
+                });
+                createDots();
+                updateCarousel();
+                startAutoSlide();
+            })();
+
+            // ===== DATA DEFINITIONS =====
+            var STYLES_DATA = [
+                { id: 'pop', name: 'Pop', emoji: '🎤' },
+                { id: 'latino', name: 'Latino', emoji: '💃' },
+                { id: 'hiphop', name: 'Hip-Hop', emoji: '🎙️' },
+                { id: 'trap', name: 'Trap', emoji: '🔥' },
+                { id: 'manele', name: 'Manele', emoji: '🎻' },
+                { id: 'disco', name: 'Disco', emoji: '🪩' },
+                { id: 'house', name: 'House', emoji: '🎧' },
+                { id: 'chill', name: 'Chill', emoji: '🏖️' }
+            ];
+            var SUBGENRES = {
+                pop: ['Nostalgia 2000s', 'Pop Romantic', 'Pop Energic', 'Pop Acustic', 'Pop Dance', 'K-Pop'],
+                latino: ['Reggaeton', 'Salsa', 'Bachata', 'Kizomba'],
+                hiphop: ['R&B', 'Rap', 'Old School Hip-Hop', 'Modern Hip-Hop'],
+                trap: ['Trap Melodic', 'Trap Agresiv', 'Drill', 'Phonk'],
+                manele: ['De petrecere', 'De jale', 'Trapanele', 'Lăutărești', 'Orientale', 'De pahar'],
+                disco: ['Disco Classic', 'Nu-Disco', 'Funk'],
+                house: ['Afro House', 'Melodic House', 'Tech House', 'Deep House', 'Tropical House'],
+                chill: ['Lo-fi', 'Acoustic Chill', 'Ambient', 'Blues']
+            };
+            var RECOMMENDATIONS = {
+                'zi-nastere': ['pop','latino','hiphop'], 'nunta': ['manele','pop','latino'],
+                'botez': ['manele','pop','latino'], 'valentines': ['pop','hiphop','chill'],
+                '8-martie': ['pop','hiphop','chill'], 'corporate': ['pop','disco','house'],
+                'cerere-casatorie': ['pop','hiphop','chill'], 'aniversare': ['pop','hiphop','chill'],
+                'pensionare': ['pop','disco','chill'], 'imn-firma': ['pop','house','trap'],
+                'absolvire': ['pop','trap','latino'], 'doar-de-drag': ['pop','chill','hiphop'],
+                'craciun': ['pop','disco','chill'], 'alta-ocazie': ['pop','latino','chill']
+            };
+            var STORY_PROMPTS = {
+                'zi-nastere': 'Ce face persoana asta specială? Ce amintire ați împărțit?',
+                'nunta': 'Cum s-au cunoscut mirii? Ce moment a fost special?',
+                'botez': 'Care e numele copilului? Ce înseamnă acest moment?',
+                'valentines': 'Cum s-au îndrăgostit? Ce cuvinte i-ai spune?',
+                '8-martie': 'Ce o face specială? Ce calități admirați?',
+                'corporate': 'Ce realizări are echipa? Ce vibe vreți?',
+                'cerere-casatorie': 'Cum a fost povestea voastră de dragoste?',
+                'aniversare': 'Ce v-a legat de la început? Ce vă face speciali?',
+                'pensionare': 'Care au fost realizările? Ce vreți să transmiteți?',
+                'imn-firma': 'Care sunt valorile companiei? Ce mesaj vreți?',
+                'absolvire': 'Ce a însemnat această perioadă? Ce planuri?',
+                'doar-de-drag': 'Ce emoție vrei să transmiți?',
+                'craciun': 'Ce amintiri de Crăciun aveți împreună?',
+                'alta-ocazie': 'Povestește-ne despre ocazia ta specială.'
+            };
+            var PACKAGE_PRICES = { simplu: 39.99, special: 59.99, premium: 89.99 };
+            var DEDICATION_AMOUNTS = {
+                '10': 's-a primit 100 lei',
+                '20': 's-a primit 500 lei',
+                '50': 's-a primit 1.000 lei',
+                '100': 's-a primit 5.000 lei'
+            };
+
+            // ===== FORM STATE =====
+            var formState = {
+                g: { step: 1, totalSteps: 7, style: null, subgenre: null, vibe: null, occasion: null, selectedPackage: 'special', mode: 'packages', dedicationCounter: 0 },
+                d: { step: 1, totalSteps: 4, style: null, subgenre: null, vibe: null, occasion: null, selectedPackage: 'special', mode: 'packages', dedicationCounter: 0 }
+            };
+
+            // ===== PATH SELECTION =====
+            var pathSelector = document.getElementById('pathSelector');
+            var guidedForm = document.getElementById('guidedForm');
+            var directForm = document.getElementById('directForm');
+
+            document.querySelectorAll('.path-card[data-path]').forEach(function(card) {
+                card.addEventListener('click', function() {
+                    var path = this.dataset.path;
+                    pathSelector.style.display = 'none';
+                    if (path === 'guided') {
+                        guidedForm.style.display = 'block';
+                    } else {
+                        directForm.style.display = 'block';
+                    }
+                });
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // ===== GENERATE STYLE CARDS =====
+            function generateStyleCards(containerId, recommendedStyles) {
+                var container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = '';
+                var prefix = containerId.charAt(0);
+                STYLES_DATA.forEach(function(style) {
+                    var card = document.createElement('div');
+                    card.className = 'style-select-card';
+                    card.dataset.style = style.id;
+                    card.setAttribute('tabindex', '0');
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-label', 'Stil muzical: ' + style.name);
+                    var html = '<span class="style-emoji">' + style.emoji + '</span><span class="style-name">' + style.name + '</span>';
+                    if (recommendedStyles && recommendedStyles.indexOf(style.id) !== -1) {
+                        html += '<span class="popular-badge-style">Potrivit</span>';
+                    }
+                    card.innerHTML = html;
+                    card.addEventListener('click', function() {
+                        container.querySelectorAll('.style-select-card').forEach(function(c) {
+                            c.classList.remove('selected');
+                        });
+                        this.classList.add('selected');
+                        formState[prefix].style = style.id;
+                        formState[prefix].subgenre = null;
+                        renderSubgenres(prefix + 'SubgenreChips', style.id, prefix);
+                        handleManeleVisibility(prefix, style.id);
+                        updateFormPrice(prefix);
+                    });
+                    card.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.click();
+                        }
+                    });
+                    container.appendChild(card);
+                });
+            }
+
+            // ===== RENDER SUBGENRES =====
+            function renderSubgenres(containerId, styleId, prefix) {
+                var chipsContainer = document.getElementById(containerId);
+                var areaEl = document.getElementById(prefix + 'SubgenreArea');
+                if (!chipsContainer || !areaEl) return;
+                var subs = SUBGENRES[styleId];
+                if (!subs || subs.length === 0) {
+                    areaEl.style.display = 'none';
+                    chipsContainer.innerHTML = '';
+                    return;
+                }
+                areaEl.style.display = 'block';
+                chipsContainer.innerHTML = '';
+                subs.forEach(function(sub) {
+                    var chip = document.createElement('div');
+                    chip.className = 'chip';
+                    chip.textContent = sub;
+                    chip.dataset.value = sub;
+                    chip.addEventListener('click', function() {
+                        if (this.classList.contains('selected')) {
+                            this.classList.remove('selected');
+                            formState[prefix].subgenre = null;
+                        } else {
+                            chipsContainer.querySelectorAll('.chip').forEach(function(c) {
+                                c.classList.remove('selected');
+                            });
+                            this.classList.add('selected');
+                            formState[prefix].subgenre = sub;
+                        }
+                    });
+                    chipsContainer.appendChild(chip);
+                });
+            }
+
+            // ===== MANELE DETECTION =====
+            function handleManeleVisibility(prefix, styleId) {
+                var dedicatiiEl = document.getElementById(prefix + 'ManeleDedicatii');
+                var maneleOnlyItems = (prefix === 'g' ? guidedForm : directForm).querySelectorAll('.manele-only');
+                if (styleId === 'manele') {
+                    if (dedicatiiEl) dedicatiiEl.style.display = 'block';
+                    maneleOnlyItems.forEach(function(item) { item.style.display = ''; });
+                } else {
+                    if (dedicatiiEl) dedicatiiEl.style.display = 'none';
+                    maneleOnlyItems.forEach(function(item) { item.style.display = 'none'; });
+                }
+            }
+
+            // ===== STEP NAVIGATION =====
+            function updateStepUI(prefix) {
+                var state = formState[prefix];
+                var formEl = prefix === 'g' ? guidedForm : directForm;
+                var stepCurrent = document.getElementById(prefix + 'StepCurrent');
+                var progressFill = document.getElementById(prefix + 'ProgressFill');
+                if (stepCurrent) stepCurrent.textContent = state.step;
+                if (progressFill) progressFill.style.width = ((state.step / state.totalSteps) * 100) + '%';
+                formEl.querySelectorAll('.form-step').forEach(function(stepEl) {
+                    var stepNum = parseInt(stepEl.dataset.step, 10);
+                    if (stepNum === state.step) {
+                        stepEl.classList.add('active');
+                    } else {
+                        stepEl.classList.remove('active');
+                    }
+                });
+            }
+
+            function validateStep(prefix, stepNum) {
+                var formEl = prefix === 'g' ? guidedForm : directForm;
+                var state = formState[prefix];
+                if (prefix === 'g') {
+                    if (stepNum === 1 && !state.vibe) return false;
+                    if (stepNum === 2 && !state.occasion) return false;
+                    if (stepNum === 3) {
+                        var recipientInput = document.getElementById('gRecipient');
+                        if (!recipientInput || !recipientInput.value.trim()) {
+                            if (recipientInput) { recipientInput.classList.add('invalid'); }
+                            var recipientErr = document.getElementById('gRecipientError');
+                            if (recipientErr) recipientErr.classList.add('show');
+                            return false;
+                        }
+                        recipientInput.classList.remove('invalid');
+                        recipientInput.classList.add('valid');
+                        var recipientErrOk = document.getElementById('gRecipientError');
+                        if (recipientErrOk) recipientErrOk.classList.remove('show');
+                    }
+                    if (stepNum === 5 && !state.style) return false;
+                } else {
+                    if (stepNum === 1 && !state.style) return false;
+                    if (stepNum === 2) {
+                        var dRecipient = document.getElementById('dRecipient');
+                        if (!dRecipient || !dRecipient.value.trim()) {
+                            if (dRecipient) dRecipient.classList.add('invalid');
+                            var dRecErr = document.getElementById('dRecipientError');
+                            if (dRecErr) dRecErr.classList.add('show');
+                            return false;
+                        }
+                        dRecipient.classList.remove('invalid');
+                        dRecipient.classList.add('valid');
+                        var dRecErrOk = document.getElementById('dRecipientError');
+                        if (dRecErrOk) dRecErrOk.classList.remove('show');
+                    }
+                }
+                return true;
+            }
+
+            function setupStepNavigation(formEl, prefix) {
+                formEl.querySelectorAll('.step-next').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        var state = formState[prefix];
+                        if (!validateStep(prefix, state.step)) return;
+                        if (state.step < state.totalSteps) {
+                            state.step++;
+                            updateStepUI(prefix);
+                            // When entering the style step in guided form, apply recommendations
+                            if (prefix === 'g' && state.step === 5 && state.occasion) {
+                                var recs = RECOMMENDATIONS[state.occasion] || [];
+                                generateStyleCards('gStyleGrid', recs);
+                                var recText = document.getElementById('gRecommendText');
+                                if (recText && recs.length > 0) {
+                                    recText.textContent = 'Recomandate pentru ocazia ta:';
+                                    recText.style.display = 'block';
+                                }
+                            }
+                            // Update price when entering payment step
+                            if ((prefix === 'g' && state.step === 7) || (prefix === 'd' && state.step === 4)) {
+                                updateFormPrice(prefix);
+                            }
+                        }
+                    });
+                });
+                formEl.querySelectorAll('.step-prev').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        var state = formState[prefix];
+                        if (state.step > 1) {
+                            state.step--;
+                            updateStepUI(prefix);
+                        }
+                    });
+                });
+            }
+
+            setupStepNavigation(guidedForm, 'g');
+            setupStepNavigation(directForm, 'd');
+
+            // ===== SELECTABLE CARDS (Vibe & Occasion) =====
+            function setupSelectableCards(formEl, prefix) {
+                formEl.querySelectorAll('.selectable-card').forEach(function(card) {
+                    card.addEventListener('click', function() {
+                        var parent = this.parentElement;
+                        parent.querySelectorAll('.selectable-card').forEach(function(c) {
+                            c.classList.remove('selected');
+                        });
+                        this.classList.add('selected');
+                        var val = this.dataset.value;
+                        // Determine if this is a vibe or occasion card based on parent context
+                        var stepEl = this.closest('.form-step');
+                        if (stepEl) {
+                            var stepNum = parseInt(stepEl.dataset.step, 10);
+                            if (prefix === 'g') {
+                                if (stepNum === 1) {
+                                    formState[prefix].vibe = val;
+                                } else if (stepNum === 2) {
+                                    formState[prefix].occasion = val;
+                                    // Show/hide custom occasion input
+                                    var gCustomOcc = document.getElementById('gCustomOccasion');
+                                    if (gCustomOcc) gCustomOcc.style.display = val === 'alta-ocazie' ? 'block' : 'none';
+                                    // Update story prompt
+                                    var promptEl = document.getElementById('gStoryPrompt');
+                                    if (promptEl && STORY_PROMPTS[val]) {
+                                        promptEl.textContent = STORY_PROMPTS[val];
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            setupSelectableCards(guidedForm, 'g');
+
+            // ===== LANGUAGE CHIPS =====
+            function setupLangSelector(selectorId) {
+                var selector = document.getElementById(selectorId);
+                if (!selector) return;
+                selector.querySelectorAll('.chip').forEach(function(chip) {
+                    chip.addEventListener('click', function() {
+                        selector.querySelectorAll('.chip').forEach(function(c) {
+                            c.classList.remove('selected');
+                        });
+                        this.classList.add('selected');
+                    });
+                });
+            }
+
+            setupLangSelector('gLangSelector');
+            setupLangSelector('dLangSelector');
+
+            // ===== DIRECT FORM VIBE CHIPS =====
+            var dVibeChips = document.getElementById('dVibeChips');
+            if (dVibeChips) {
+                dVibeChips.querySelectorAll('.chip').forEach(function(chip) {
+                    chip.addEventListener('click', function() {
+                        dVibeChips.querySelectorAll('.chip').forEach(function(c) {
+                            c.classList.remove('selected');
+                        });
+                        this.classList.add('selected');
+                        formState.d.vibe = this.dataset.value;
+                    });
+                });
+            }
+
+            // ===== DIRECT FORM OCCASION SELECT =====
+            var dOccasionSelect = document.getElementById('dOccasion');
+            if (dOccasionSelect) {
+                dOccasionSelect.addEventListener('change', function() {
+                    formState.d.occasion = this.value;
+                    var customDiv = document.getElementById('dCustomOccasion');
+                    if (customDiv) customDiv.style.display = this.value === 'alta-ocazie' ? 'block' : 'none';
+                });
+            }
+
+            // ===== PACKAGE / CUSTOM TOGGLE =====
+            function setupPackageToggle(formEl, prefix) {
+                var toggleBtns = formEl.querySelectorAll('.toggle-option');
+                var packagesView = document.getElementById(prefix + 'PackagesView');
+                var customView = document.getElementById(prefix + 'CustomView');
+                toggleBtns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        toggleBtns.forEach(function(b) { b.classList.remove('active'); });
+                        this.classList.add('active');
+                        var mode = this.dataset.mode;
+                        formState[prefix].mode = mode;
+                        if (mode === 'packages') {
+                            if (packagesView) packagesView.style.display = 'block';
+                            if (customView) customView.style.display = 'none';
+                        } else {
+                            if (packagesView) packagesView.style.display = 'none';
+                            if (customView) customView.style.display = 'block';
+                        }
+                        updateFormPrice(prefix);
+                    });
+                });
+                // Package card selection
+                var packagesGrid = document.getElementById(prefix + 'PackagesGrid');
+                if (packagesGrid) {
+                    packagesGrid.querySelectorAll('.package-card').forEach(function(card) {
+                        card.addEventListener('click', function() {
+                            packagesGrid.querySelectorAll('.package-card').forEach(function(c) {
+                                c.classList.remove('selected');
+                            });
+                            this.classList.add('selected');
+                            formState[prefix].selectedPackage = this.dataset.package;
+                            updateFormPrice(prefix);
+                        });
+                    });
+                }
+                // Custom atingeri checkboxes
+                if (customView) {
+                    customView.querySelectorAll('input[type="checkbox"]').forEach(function(cb) {
+                        cb.addEventListener('change', function() {
+                            updateFormPrice(prefix);
+                        });
+                    });
+                }
+            }
+
+            setupPackageToggle(guidedForm, 'g');
+            setupPackageToggle(directForm, 'd');
+
+            // ===== MONEY ANIMATION =====
+            function triggerMoneyAnimation() {
+                var dirijorEl = document.getElementById('dirijorul');
+                if (!dirijorEl) return;
+                var rect = dirijorEl.getBoundingClientRect();
+                var emojis = ['💰', '💸', '🤑', '💵'];
+                for (var i = 0; i < 6; i++) {
+                    (function(idx) {
+                        setTimeout(function() {
+                            var particle = document.createElement('span');
+                            particle.className = 'money-particle';
+                            particle.textContent = emojis[idx % emojis.length];
+                            particle.style.left = (rect.left + Math.random() * 40) + 'px';
+                            particle.style.top = (rect.top - 10) + 'px';
+                            document.body.appendChild(particle);
+                            setTimeout(function() { if (particle.parentNode) particle.parentNode.removeChild(particle); }, 1300);
+                        }, idx * 150);
+                    })(i);
+                }
+            }
+
+            // ===== DEDICATION TOGGLES (Manele only) =====
+            function setupDedicationToggles(prefix) {
+                var toggleDedicatie = document.getElementById(prefix + 'ToggleDedicatie');
+                var dedicatieContent = document.getElementById(prefix + 'DedicatieContent');
+                var toggleArunci = document.getElementById(prefix + 'ToggleArunci');
+                var aruniciContent = document.getElementById(prefix + 'AruniciContent');
+                var aruniciList = document.getElementById(prefix + 'AruniciList');
+                var addArunciBtn = document.getElementById(prefix + 'AddArunci');
+
+                if (toggleDedicatie) {
+                    toggleDedicatie.addEventListener('click', function() {
+                        if (this.classList.contains('active')) {
+                            this.classList.remove('active');
+                            this.textContent = 'NU';
+                            if (dedicatieContent) dedicatieContent.style.display = 'none';
+                        } else {
+                            this.classList.add('active');
+                            this.textContent = 'DA';
+                            if (dedicatieContent) dedicatieContent.style.display = 'block';
+                        }
+                        updateFormPrice(prefix);
+                    });
+                }
+
+                if (toggleArunci) {
+                    toggleArunci.addEventListener('click', function() {
+                        if (this.classList.contains('active')) {
+                            this.classList.remove('active');
+                            this.textContent = 'NU';
+                            if (aruniciContent) aruniciContent.style.display = 'none';
+                        } else {
+                            this.classList.add('active');
+                            this.textContent = 'DA';
+                            if (aruniciContent) aruniciContent.style.display = 'block';
+                            triggerMoneyAnimation();
+                        }
+                        updateFormPrice(prefix);
+                    });
+                }
+
+                if (addArunciBtn && aruniciList) {
+                    addArunciBtn.addEventListener('click', function() {
+                        formState[prefix].dedicationCounter++;
+                        var row = document.createElement('div');
+                        row.className = 'dedication-row';
+                        row.dataset.id = formState[prefix].dedicationCounter;
+                        row.innerHTML =
+                            '<select class="form-select dedication-amount" aria-label="Suma dedicație">' +
+                                '<option value="10">10 lei</option>' +
+                                '<option value="20">20 lei</option>' +
+                                '<option value="50">50 lei</option>' +
+                                '<option value="100">100 lei</option>' +
+                            '</select>' +
+                            '<span class="dedication-result">În melodie: „' + DEDICATION_AMOUNTS['10'] + '"</span>' +
+                            '<button type="button" class="dedication-remove" aria-label="Șterge dedicația">✕</button>';
+
+                        var select = row.querySelector('.dedication-amount');
+                        var resultText = row.querySelector('.dedication-result');
+
+                        select.addEventListener('change', function() {
+                            resultText.textContent = 'În melodie: „' + DEDICATION_AMOUNTS[this.value] + '"';
+                            updateFormPrice(prefix);
+                        });
+
+                        row.querySelector('.dedication-remove').addEventListener('click', function() {
+                            row.remove();
+                            updateFormPrice(prefix);
+                        });
+
+                        aruniciList.appendChild(row);
+                        updateFormPrice(prefix);
+                    });
+                }
+            }
+
+            setupDedicationToggles('g');
+            setupDedicationToggles('d');
+
+            // ===== PROMO STATE =====
+
+
+            // ===== PRICE CALCULATOR =====
+            function updateFormPrice(prefix) {
+                var state = formState[prefix];
+                var total = 0;
+                var packageLabel = '';
+                var formEl = prefix === 'g' ? guidedForm : directForm;
+
+                if (state.mode === 'packages') {
+                    total = PACKAGE_PRICES[state.selectedPackage] || PACKAGE_PRICES.special;
+                    var packageNames = { simplu: 'Simplu', special: 'Special', premium: 'Premium' };
+                    packageLabel = 'Pachet ' + (packageNames[state.selectedPackage] || 'Special');
+                } else {
+                    // Custom mode: base price + checked atingeri
+                    total = 39.99;
+                    packageLabel = 'Melodie de bază';
+                    var customView = document.getElementById(prefix + 'CustomView');
+                    if (customView) {
+                        customView.querySelectorAll('input[type="checkbox"]:checked').forEach(function(cb) {
+                            var price = parseFloat(cb.dataset.price) || 0;
+                            total += price;
+                        });
+                    }
+                }
+
+                // Add dedication amounts if manele and arunci is active
+                var dedicationsTotal = 0;
+                var toggleArunci = document.getElementById(prefix + 'ToggleArunci');
+                if (toggleArunci && toggleArunci.classList.contains('active')) {
+                    var aruniciList = document.getElementById(prefix + 'AruniciList');
+                    if (aruniciList) {
+                        aruniciList.querySelectorAll('.dedication-amount').forEach(function(sel) {
+                            dedicationsTotal += parseInt(sel.value, 10);
+                        });
+                    }
+                }
+                total += dedicationsTotal;
+
+                // Update price summary elements
+                var packageLine = document.getElementById(prefix + 'PackageLine');
+                var dedicatiiLine = document.getElementById(prefix + 'DedicatiiLine');
+                var dedicatiiPrice = document.getElementById(prefix + 'DedicatiiPrice');
+                var totalEl = document.getElementById(prefix + 'TotalPrice');
+                var submitEl = document.getElementById(prefix + 'SubmitBtn');
+
+                if (packageLine) {
+                    packageLine.textContent = (total - dedicationsTotal).toFixed(2) + ' lei';
+                    var packageSpan = packageLine.parentElement.querySelector('span:first-child');
+                    if (packageSpan) packageSpan.textContent = packageLabel;
+                }
+
+                if (dedicationsTotal > 0) {
+                    if (dedicatiiLine) dedicatiiLine.style.display = 'flex';
+                    if (dedicatiiPrice) dedicatiiPrice.textContent = '+' + dedicationsTotal.toFixed(2) + ' lei';
+                } else {
+                    if (dedicatiiLine) dedicatiiLine.style.display = 'none';
+                }
+
+                var newTotal = total.toFixed(2) + ' lei';
+                if (totalEl && totalEl.textContent !== newTotal) {
+                    totalEl.classList.add('updating');
+                    setTimeout(function() {
+                        totalEl.textContent = newTotal;
+                        if (submitEl) submitEl.textContent = 'Plătește ' + newTotal;
+                    }, 160);
+                    setTimeout(function() {
+                        totalEl.classList.remove('updating');
+                    }, 400);
+                } else if (totalEl) {
+                    totalEl.textContent = newTotal;
+                    if (submitEl) submitEl.textContent = 'Plătește ' + newTotal;
+                }
+            }
+
+            // ===== FORM VALIDATION =====
+            function validateEmail(input, errorId) {
+                var error = document.getElementById(errorId);
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(input.value.trim())) {
+                    input.classList.add('invalid');
+                    input.classList.remove('valid');
+                    if (error) error.classList.add('show');
+                    return false;
+                }
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                if (error) error.classList.remove('show');
+                return true;
+            }
+
+            // Real-time email validation
+            var gEmailInput = document.getElementById('gEmail');
+            var dEmailInput = document.getElementById('dEmail');
+            if (gEmailInput) {
+                gEmailInput.addEventListener('blur', function() {
+                    validateEmail(this, 'gEmailError');
+                });
+            }
+            if (dEmailInput) {
+                dEmailInput.addEventListener('blur', function() {
+                    validateEmail(this, 'dEmailError');
+                });
+            }
+
+            // Clear validation on input (fix persistent error)
+            ['gRecipient', 'dRecipient'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', function() {
+                        if (this.value.trim()) {
+                            this.classList.remove('invalid');
+                            this.classList.add('valid');
+                            var errEl = document.getElementById(id + 'Error');
+                            if (errEl) errEl.classList.remove('show');
+                        }
+                    });
+                }
+            });
+            if (gEmailInput) {
+                gEmailInput.addEventListener('input', function() {
+                    if (this.classList.contains('invalid')) validateEmail(this, 'gEmailError');
+                });
+            }
+            if (dEmailInput) {
+                dEmailInput.addEventListener('input', function() {
+                    if (this.classList.contains('invalid')) validateEmail(this, 'dEmailError');
+                });
+            }
+
+            // ===== FORM SUBMIT =====
+            function collectFormData(prefix) {
+                var state = formState[prefix];
+                var storyEl = document.getElementById(prefix + 'Story');
+                var recipientEl = document.getElementById(prefix + 'Recipient');
+                var relationEl = document.getElementById(prefix + 'Relation');
+                var emailEl = document.getElementById(prefix + 'Email');
+
+                // Collect atingeri status
+                var atingeri = {};
+                var toggles = document.querySelectorAll('#' + (prefix === 'g' ? 'guidedForm' : 'directForm') + ' .toggle-btn.active');
+                toggles.forEach(function(btn) {
+                    var card = btn.closest('.dedicatie-toggle-card');
+                    if (card) {
+                        var title = card.querySelector('h4');
+                        if (title) atingeri[title.textContent] = true;
+                    }
+                });
+
+                // Collect dedications total
+                var dedicationsTotal = 0;
+                var toggleArunci = document.getElementById(prefix + 'ToggleArunci');
+                if (toggleArunci && toggleArunci.classList.contains('active')) {
+                    var aruniciList = document.getElementById(prefix + 'AruniciList');
+                    if (aruniciList) {
+                        aruniciList.querySelectorAll('.dedication-amount').forEach(function(sel) {
+                            dedicationsTotal += parseInt(sel.value, 10);
+                        });
+                    }
+                }
+
+                return {
+                    packageType: state.selectedPackage || 'special',
+                    email: emailEl ? emailEl.value.trim() : '',
+                    style: state.style || '',
+                    subgenre: state.subgenre || '',
+                    vibe: state.vibe || '',
+                    occasion: state.occasion || '',
+                    recipient: recipientEl ? recipientEl.value.trim() : '',
+                    relation: relationEl ? relationEl.value : '',
+                    language: state.language || 'ro',
+                    story: storyEl ? storyEl.value.trim() : '',
+                    atingeri: atingeri,
+                    dedicationsTotal: dedicationsTotal,
+                    // Promo codes handled natively by Stripe Checkout
+                };
+            }
+
+            function handleFormSubmit(formEl, prefix) {
+                formEl.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var emailInput = document.getElementById(prefix + 'Email');
+                    if (!emailInput || !validateEmail(emailInput, prefix + 'EmailError')) return;
+
+                    var submitBtn = document.getElementById(prefix + 'SubmitBtn');
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Se procesează...';
+                    }
+
+                    var orderData = collectFormData(prefix);
+
+                    // Save to sessionStorage for composition page
+                    sessionStorage.setItem('userEmail', orderData.email);
+                    sessionStorage.setItem('orderStyle', orderData.style);
+                    sessionStorage.setItem('orderSubgenre', orderData.subgenre);
+                    sessionStorage.setItem('orderVibe', orderData.vibe);
+                    sessionStorage.setItem('orderOccasion', orderData.occasion);
+                    sessionStorage.setItem('orderPackage', orderData.packageType);
+
+                    // Trigger Dirijorul animation
+                    triggerDirijorul('Orchestra se pregătește!');
+
+                    // Call Stripe Checkout API
+                    fetch('/api/create-checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(orderData)
+                    })
+                    .then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        if (data.url) {
+                            // Redirect to Stripe Checkout
+                            window.location.href = data.url;
+                        } else {
+                            throw new Error(data.error || 'Eroare la plată');
+                        }
+                    })
+                    .catch(function(err) {
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            var totalEl = document.getElementById(prefix + 'TotalPrice');
+                            submitBtn.textContent = 'Plătește ' + (totalEl ? totalEl.textContent : '');
+                        }
+                        // Show error inline on submit button
+                        if (submitBtn) {
+                            submitBtn.textContent = err.message || 'Eroare. Încearcă din nou.';
+                            setTimeout(function() {
+                                var t = document.getElementById(prefix + 'TotalPrice');
+                                submitBtn.textContent = 'Plătește ' + (t ? t.textContent : '');
+                            }, 3000);
+                        }
+                    });
+                });
+            }
+
+            handleFormSubmit(guidedForm, 'g');
+            handleFormSubmit(directForm, 'd');
+
+            // ===== INITIALIZE STYLE GRIDS =====
+            generateStyleCards('gStyleGrid', null);
+            generateStyleCards('dStyleGrid', null);
+
+            // ===== DIRIJORUL MASCOT =====
+            var dirijorul = document.getElementById('dirijorul');
+            var dirijorulBubble = document.getElementById('dirijorulBubble');
+            var dirijorulMessages = [
+                'Hai să compunem!',
+                'Domnul Dirijor e gata!',
+                'Melodia ta prinde formă!',
+                'Excelentă alegere!',
+                'Sună bine!'
+            ];
+            var isConducting = false;
+
+            function triggerDirijorul(message) {
+                if (isConducting || prefersReducedMotion) return;
+                isConducting = true;
+
+                // Show bubble with message
+                if (message) {
+                    dirijorulBubble.textContent = message;
+                }
+                dirijorul.classList.add('conducting', 'show-bubble');
+
+                // Remove after animation
+                setTimeout(function() {
+                    dirijorul.classList.remove('conducting');
+                }, 900);
+                setTimeout(function() {
+                    dirijorul.classList.remove('show-bubble');
+                    isConducting = false;
+                }, 2500);
+            }
+
+            // Show welcome bubble on first load
+            setTimeout(function() {
+                dirijorulBubble.textContent = 'Bine ai venit! Eu sunt Domnul Dirijor.';
+                dirijorul.classList.add('show-bubble');
+                setTimeout(function() {
+                    dirijorul.classList.remove('show-bubble');
+                }, 3500);
+            }, 2000);
+
+            // ===== DIRIJOR CHAT PANEL =====
+            var chatPanel = document.getElementById('dirijorChat');
+            var chatClose = document.getElementById('chatClose');
+            var chatOpen = false;
+
+            if (dirijorul && chatPanel) {
+                dirijorul.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    chatOpen = !chatOpen;
+                    chatPanel.classList.toggle('open', chatOpen);
+                    // Hide the speech bubble when chat opens
+                    dirijorul.classList.remove('show-bubble');
+                    if (chatOpen) {
+                        dirijorul.classList.add('conducting');
+                        setTimeout(function() { dirijorul.classList.remove('conducting'); }, 900);
+                    }
+                });
+            }
+
+            if (chatClose) {
+                chatClose.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    chatOpen = false;
+                    chatPanel.classList.remove('open');
+                });
+            }
+
+            // Close chat when clicking outside
+            document.addEventListener('click', function(e) {
+                if (chatOpen && chatPanel && !chatPanel.contains(e.target) && !dirijorul.contains(e.target)) {
+                    chatOpen = false;
+                    chatPanel.classList.remove('open');
+                }
+            });
+
+            // Chat action buttons — navigate to form
+            document.querySelectorAll('.chat-action-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var action = this.dataset.action;
+                    chatOpen = false;
+                    chatPanel.classList.remove('open');
+                    // Scroll to form section
+                    var formSection = document.getElementById('comanda');
+                    if (formSection) {
+                        formSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // Wait for scroll, then auto-select path
+                    setTimeout(function() {
+                        var pathCard = document.querySelector('.path-card[data-path="' + action + '"]');
+                        if (pathCard) pathCard.click();
+                    }, 800);
+                });
+            });
+
+            // Trigger on CTA button clicks
+            document.querySelectorAll('.btn-gold, .btn-submit, .hero-actions .btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var buttonText = this.textContent.trim();
+                    var msg;
+                    if (buttonText.indexOf('Plătește') > -1) {
+                        msg = 'Melodia ta se pregătește!';
+                    } else if (buttonText.indexOf('Creează') > -1) {
+                        msg = 'Hai să compunem ceva special!';
+                    } else {
+                        msg = 'Excelentă alegere!';
+                    }
+                    triggerDirijorul(msg);
+                });
+            });
+
+            // Trigger on style card selection
+            document.querySelectorAll('.style-card').forEach(function(card) {
+                card.addEventListener('click', function() {
+                    var styleName = card.querySelector('h3').textContent;
+                    triggerDirijorul(styleName + '? Sună bine!');
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
