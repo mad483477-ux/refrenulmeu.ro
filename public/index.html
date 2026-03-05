@@ -1382,14 +1382,14 @@
 
         .dirijorul-container {
             position: relative;
-            width: 72px;
-            height: 96px;
+            width: 90px;
+            height: 120px;
         }
 
         /* Conductor body - SVG based */
         .dirijorul svg {
-            width: 72px;
-            height: 96px;
+            width: 90px;
+            height: 120px;
             filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
         }
 
@@ -1517,20 +1517,20 @@
                 right: 12px;
             }
             .dirijorul-container {
-                width: 56px;
-                height: 74px;
+                width: 70px;
+                height: 93px;
             }
             .dirijorul svg {
-                width: 56px;
-                height: 74px;
+                width: 70px;
+                height: 93px;
             }
             .dirijorul-bubble {
                 font-size: 0.7rem;
                 padding: 8px 10px;
                 right: -5px;
-                bottom: 80px;
+                bottom: 100px;
             }
-            .dirijor-chat-panel { right: 12px; bottom: 95px; width: calc(100vw - 24px); max-width: 320px; }
+            .dirijor-chat-panel { right: 12px; bottom: 115px; width: calc(100vw - 24px); max-width: 320px; }
         }
 
         /* ========== DIRIJOR CHAT PANEL ========== */
@@ -1708,6 +1708,7 @@
             .vibe-grid, .occasion-grid { grid-template-columns: repeat(2, 1fr); }
             .style-selector-grid { grid-template-columns: repeat(2, 1fr); }
             .pricing-grid { grid-template-columns: 1fr 1fr; }
+            .pricing-table-landing { grid-template-columns: 1.2fr repeat(3, 1fr) !important; font-size: 0.85rem; }
             .dedicatie-toggle-card { flex-direction: column; gap: 12px; text-align: center; }
         }
 
@@ -1744,6 +1745,13 @@
             .pkg-header .package-price { font-size: 1rem; }
             .pkg-corner { font-size: 0.75rem; padding: 12px 8px; }
             .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-table-landing { grid-template-columns: 1.2fr repeat(3, 1fr) !important; font-size: 0.75rem; }
+            .pricing-table-landing .pkg-feature { font-size: 0.7rem; padding: 8px 6px; }
+            .pricing-table-landing .pkg-check { padding: 8px 4px; font-size: 0.85rem; }
+            .pricing-table-landing .pkg-header h4 { font-size: 0.75rem; }
+            .pricing-table-landing .pkg-header .package-price { font-size: 0.9rem; }
+            .pricing-table-landing .pkg-corner { font-size: 0.7rem; padding: 10px 6px; }
+            .pricing-table-landing .btn { font-size: 0.75rem !important; padding: 8px 10px !important; }
             .style-selector-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
@@ -1858,7 +1866,7 @@
         <section class="section" id="stiluri" aria-label="Stiluri muzicale">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>Alege stilul tău</h2>
+                    <h2>Alege stilul muzical</h2>
                     <p>8 stiluri muzicale pentru orice gust și orice ocazie</p>
                 </div>
                 <div class="styles-grid stagger-container">
@@ -1913,42 +1921,78 @@
                     <h2>Prețuri transparente</h2>
                     <p>Fără costuri ascunse. Plătești ce vezi.</p>
                 </div>
-                <div class="pricing-grid stagger-container">
-                    <div class="pricing-tier tilt-card stagger-item">
-                        <h3>Simplu</h3>
-                        <div class="price">39.99 lei</div>
-                        <div class="price-label">melodie personalizată</div>
-                        <ul class="pricing-features">
-                            <li><span class="check">✓</span> Melodie unică</li>
-                            <li><span class="check">✓</span> 2 variante</li>
-                            <li><span class="check">✓</span> Download instant</li>
-                            <li><span class="check">✓</span> Gata în câteva minute</li>
-                        </ul>
-                        <a href="#comanda" class="btn btn-outline" style="width:100%">Alege</a>
-                    </div>
-                    <div class="pricing-tier highlighted tilt-card stagger-item">
-                        <div class="popular-badge">Cel mai popular</div>
-                        <h3>Special</h3>
-                        <div class="price">59.99 lei</div>
-                        <div class="price-label">tot din Simplu, plus:</div>
-                        <ul class="pricing-features">
-                            <li><span class="check">✓</span> Versuri personalizate</li>
-                            <li><span class="check">✓</span> 1 mențiune de nume</li>
-                            <li><span class="check">✓</span> Mesaj personal în melodie</li>
-                        </ul>
-                        <a href="#comanda" class="btn btn-gold" style="width:100%">Alege</a>
-                    </div>
-                    <div class="pricing-tier tilt-card stagger-item">
-                        <h3>Premium</h3>
-                        <div class="price">89.99 lei</div>
-                        <div class="price-label">tot din Special, plus:</div>
-                        <ul class="pricing-features">
-                            <li><span class="check">✓</span> Intro vorbit</li>
-                            <li><span class="check">✓</span> Outro cu dedicație</li>
-                            <li><span class="check">✓</span> Poveste extinsă</li>
-                        </ul>
-                        <a href="#comanda" class="btn btn-outline" style="width:100%">Alege</a>
-                    </div>
+                <div class="pricing-table-landing fade-in" style="display:grid; grid-template-columns: 1.4fr repeat(3, 1fr); background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; max-width: 800px; margin: 0 auto;">
+                    <!-- Header row -->
+                    <div class="pkg-corner">Ce primești</div>
+                    <div class="pkg-header" style="cursor:default;"><h4>Simplu</h4><div class="package-price">39.99 lei</div></div>
+                    <div class="pkg-header" style="cursor:default; position:relative;"><div class="popular-badge">Recomandat</div><h4>Special</h4><div class="package-price">59.99 lei</div></div>
+                    <div class="pkg-header" style="cursor:default;"><h4>Premium</h4><div class="package-price">89.99 lei</div></div>
+
+                    <!-- Melodie personalizată -->
+                    <div class="pkg-feature">Melodie personalizată</div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- 2 variante generate -->
+                    <div class="pkg-feature">2 variante generate</div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Download instant -->
+                    <div class="pkg-feature">Download instant</div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Gata în câteva minute -->
+                    <div class="pkg-feature">Gata în câteva minute</div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Versuri personalizate -->
+                    <div class="pkg-feature">Versuri personalizate</div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Mențiune de nume -->
+                    <div class="pkg-feature">Mențiune de nume</div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Mesaj personal în melodie -->
+                    <div class="pkg-feature">Mesaj personal în melodie</div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Intro vorbit -->
+                    <div class="pkg-feature">Intro vorbit</div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Outro cu dedicație -->
+                    <div class="pkg-feature">Outro cu dedicație</div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- Poveste extinsă -->
+                    <div class="pkg-feature">Poveste extinsă</div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-no">—</span></div>
+                    <div class="pkg-check"><span class="check-yes">✓</span></div>
+
+                    <!-- CTA buttons row -->
+                    <div style="padding: 16px 12px;"></div>
+                    <div style="padding: 16px 12px; text-align: center;"><a href="#comanda" class="btn btn-outline" style="width:100%; font-size:0.85rem; padding:10px 16px;">Alege</a></div>
+                    <div style="padding: 16px 12px; text-align: center;"><a href="#comanda" class="btn btn-gold" style="width:100%; font-size:0.85rem; padding:10px 16px;">Alege</a></div>
+                    <div style="padding: 16px 12px; text-align: center;"><a href="#comanda" class="btn btn-outline" style="width:100%; font-size:0.85rem; padding:10px 16px;">Alege</a></div>
                 </div>
             </div>
         </section>
@@ -2529,13 +2573,13 @@
                 <!-- Body - tailored tuxedo -->
                 <path d="M30 48 L28 82 H58 L56 48 Z" fill="#111"/>
                 <!-- Tuxedo jacket shape with broader shoulders -->
-                <path d="M26 48 L30 48 L28 82 H58 L56 48 L60 48 L58 44 L54 40 H32 L28 44 Z" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="0.5"/>
+                <path d="M26 48 L30 48 L28 82 H58 L56 48 L60 48 L58 44 L54 40 H32 L28 44 Z" fill="#222" stroke="#444" stroke-width="0.8"/>
                 <!-- White shirt front -->
-                <path d="M39 42 L39 80 L47 80 L47 42 Z" fill="#fafafa" opacity="0.12"/>
-                <line x1="43" y1="42" x2="43" y2="80" stroke="#fafafa" opacity="0.06" stroke-width="0.5"/>
+                <path d="M39 42 L39 80 L47 80 L47 42 Z" fill="#fafafa" opacity="0.2"/>
+                <line x1="43" y1="42" x2="43" y2="80" stroke="#fafafa" opacity="0.1" stroke-width="0.5"/>
                 <!-- Satin lapels -->
-                <path d="M32 42 L39 42 L43 58" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M54 42 L47 42 L43 58" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M32 42 L39 42 L43 58" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M54 42 L47 42 L43 58" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
                 <!-- Bow tie - proper butterfly -->
                 <path d="M38 41 L43 43 L48 41 L48 39 L43 41 L38 39 Z" fill="var(--accent)"/>
                 <circle cx="43" cy="41" r="1.2" fill="var(--accent-hover)"/>
@@ -2544,7 +2588,7 @@
                 <circle cx="43" cy="58" r="0.8" fill="var(--gold)"/>
                 <circle cx="43" cy="64" r="0.8" fill="var(--gold)"/>
                 <!-- Pocket square -->
-                <path d="M50 47 L54 47 L53 51 L51 50 Z" fill="var(--gold)" opacity="0.7"/>
+                <path d="M50 47 L54 47 L53 51 L51 50 Z" fill="var(--gold)" opacity="1"/>
                 <!-- Neck -->
                 <rect x="39" y="34" width="8" height="8" rx="3" fill="#E8C39E"/>
                 <!-- Head - refined proportions -->
@@ -2570,10 +2614,10 @@
                 <!-- Mustache - distinguished -->
                 <path d="M39 29.5 Q41 31 43 29.5 Q45 31 47 29.5" stroke="#555" stroke-width="1" fill="none" stroke-linecap="round"/>
                 <!-- Top hat - classic -->
-                <rect x="32" y="4" width="22" height="14" rx="3" fill="#111" stroke="#2a2a2a" stroke-width="0.5"/>
-                <rect x="29" y="14" width="28" height="3.5" rx="1.5" fill="#1a1a1a" stroke="#333" stroke-width="0.5"/>
+                <rect x="32" y="4" width="22" height="14" rx="3" fill="#1a1a1a" stroke="#444" stroke-width="0.8"/>
+                <rect x="29" y="14" width="28" height="3.5" rx="1.5" fill="#222" stroke="#555" stroke-width="0.5"/>
                 <!-- Hat band -->
-                <rect x="32" y="13" width="22" height="2" rx="0.5" fill="var(--accent)" opacity="0.6"/>
+                <rect x="32" y="13" width="22" height="2.5" rx="0.5" fill="var(--accent)" opacity="0.9"/>
                 <!-- Left arm - elegant resting pose -->
                 <path d="M30 48 L22 56 L20 68 L22 70" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round" fill="none"/>
                 <path d="M30 48 L22 56 L20 68 L22 70" stroke="#2a2a2a" stroke-width="3.5" stroke-linecap="round" fill="none"/>
